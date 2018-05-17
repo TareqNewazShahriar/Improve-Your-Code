@@ -272,13 +272,13 @@ else if (item != null && item.fullchecked == false)
 ````c#
 if (item != null)	// Do not nest; instead skip if item is null
 {
-	if (item.fullchecked)	// Not needed to check with “true” as “item.fullchecked” is itself a boolean
-	{
-	...
-	}
-	else
-	{
-	...
-	}
+    if (item.fullchecked)	// Not needed to check with “true” as “item.fullchecked” is itself a boolean
+    {
+    ...
+    }
+    else
+    {
+    ...
+    }
 }
 ````
