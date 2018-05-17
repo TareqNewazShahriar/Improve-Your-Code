@@ -13,7 +13,7 @@ Sensitive, unnecessary, irrelevant code parts should be replaced/removed.
 ### SO... HERE WE GO
 
 
-* [11]
+## [11]
 ````c#
 (drugclass == "C3" || drugclass == "C4" || drugclass == "C5")
 ````
@@ -25,7 +25,7 @@ new string[] { "C3", "C4", "C5" }.Contains(drugclass)
 **Reason**: We don’t need to type ‘drugclass’ every time (sometimes this may lead to an error of mistakenly typing similar property or variable). More items can be added easily.
 
 
-* [10]
+## [10]
 ````c#
 if (CustomerSelect == 0)
 {
@@ -42,7 +42,7 @@ else
 IsIndividualCustomer = CustomerSelect != 0;
 ````
  
-* [9]
+## [9]
 ````c#
 public enum LicenseType
 {
@@ -67,7 +67,8 @@ else
 code.Append((int)license.LicenseType);
 ````
 
-* [8] Adding “0” or “1” in a string for each item of an object list based on a condition check:
+## [8]
+Adding “0” or “1” in a string for each item of an object list based on a condition check:
 ````c#
 class Module
 {
@@ -110,7 +111,8 @@ string bits = string.Join("", license.Module.OrderBy(x=>x.SeqNo).Select(x => x.I
 
 **UPDATE:** *Please remove Magic numbers with Constant/Enum/etc. with the use of intent revealing name.*
 
-* [8.1] Now the reverse of above - assign true/false in a property of a object list based on a string having only zero and one:
+## [8.1]
+Now the reverse of above - assign true/false in a property of a object list based on a string having only zero and one:
 ````c#
 string module = code.Substring(13, moduleList.Count);
 string[] moduleArr = module.ToCharArray().Select(c => c.ToString()).ToArray();
@@ -143,7 +145,7 @@ license.Module = moduleList
             	.ToList();
 ````
 
-* [7]
+## [7]
 
 ````c#
 // code -- stringBuilder
@@ -178,7 +180,7 @@ if (license.ExpiryDate != null)
 code.Append(license.ExpiryDate.Value.ToString("yyyyMMdd"));
 ````
 
-* [6]
+## [6]
 ````c#
 if (license.NoOfUser != null)
 {
@@ -199,7 +201,7 @@ else
 code.Append((license.NoOfUser ?? default(int)).ToString().PadLeft(2, '0'));
 ````
 
-* [5]
+## [5]
 ````c#
 string code = string.Empty;
 code += license.Falg1 ? "0" : "1";
@@ -211,7 +213,7 @@ code += license.Falg4 ? "0" : "1";
 **Reason:** Should use StringBuilder. For each concatenation, one new string variable will be created.
 Should be used self-explanatory names which reveal it’s intent instead of Falgs and also remove Magic numbers.
 
-* [4]
+## [4]
 ````c#
 var applicationTypeList = new List<SelectListItem>();
 foreach (EnumCollection.ApplicationType applicationType in Enum.GetValues(typeof(EnumCollection.ApplicationType)))
@@ -228,7 +230,7 @@ foreach (EnumCollection.ApplicationType applicationType in Enum.GetValues(typeof
 var applicationTypeList = Enum.GetValues(typeof(EnumCollection.ApplicationType)).Cast<EnumCollection.ApplicationType>().Select(x => new SelectListItem() { Text = x.ToString(), Value = x.ToString(), Selected = (license != null && license.ApplicationType == x) }).ToList();
 ````
 
-* [3]
+## [3]
 ````c#
 if (code.Substring(9, 1) == "0")
     license.ApplicationType = EnumCollection.ApplicationType.Regular;
@@ -241,7 +243,7 @@ else
 license.ApplicationType = (EnumCollection.ApplicationType)int.Parse(code.Substring(9, 1));
 ````
 
-* [2]
+## [2]
 ````c#
 string year = code.Substring(1, 4);
 string month = code.Substring(5, 2);
@@ -254,7 +256,7 @@ license.ExpiryDate = Convert.ToDateTime(year + "-" + month + "-" + day);
 license.ExpiryDate = DateTime.ParseExact(code.Substring(1, 8), "yyyyMMdd", null);
 ````
 
-* [1]
+## [1]
 ````c#
 if (item != null && item.fullchecked == true)
 {
