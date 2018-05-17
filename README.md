@@ -260,11 +260,11 @@ license.ExpiryDate = DateTime.ParseExact(code.Substring(1, 8), "yyyyMMdd", null)
 ````c#
 if (item != null && item.fullchecked == true)
 {
-...
+  ...
 }
 else if (item != null && item.fullchecked == false)
 {
-   	...
+  ...
 }
 ````
 
@@ -272,9 +272,9 @@ else if (item != null && item.fullchecked == false)
 ````c#
 if (item != null)	// Do not nest; instead skip if item is null
 {
-	if (item.fullchecked)	// Not needed to check with “true” as “item.fullchecked” is itself a boolean
-	{
-		...
+  if (item.fullchecked)	// Not needed to check with “true” as “item.fullchecked” is itself a boolean
+  {
+    ...
   }
   else
   {
