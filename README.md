@@ -55,7 +55,8 @@ public class License
    public LicenseType LicenseType { get; set; }
    ...
 }
-
+````
+````c#
 if (license.LicenseType.ToString() == "Demo")
    code.Append("0");   // code is stringBuilder
 else
