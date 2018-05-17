@@ -12,6 +12,7 @@ Sensitive, unnecessary, irrelevant code parts should be replaced/removed.
 
 ### SO... HERE WE GO
 
+
 * [11]
 ````c#
 (drugclass == "C3" || drugclass == "C4" || drugclass == "C5")
@@ -23,7 +24,7 @@ new string[] { "C3", "C4", "C5" }.Contains(drugclass)
 ````
 **Reason**: We don’t need to type ‘drugclass’ every time (sometimes this may lead to an error of mistakenly typing similar property or variable). More items can be added easily.
 
- 
+
 * [10]
 ````c#
 if (CustomerSelect == 0)
