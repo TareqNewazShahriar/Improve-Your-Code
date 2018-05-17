@@ -2,6 +2,8 @@
 
 ***(This is not a code repository. Here we are showing how to improve code, from real life examples and mistakes)***
 
+**This project created/migrated from previous google doc https://docs.google.com/document/d/1C8e8Bw8WUYy79pyo81CS1s84UFuT_EZBcH1r7EeEK7c/edit?usp=drivesdk**
+
 #### NOTE
 ---------------------------------
 * Only the code found in real life will be added which can be improved/cleaned. And this doc is not for general tips, tricks.
@@ -12,17 +14,6 @@ Sensitive, unnecessary, irrelevant code parts should be replaced/removed.
 
 ### SO... HERE WE GO
 
-
-## [11]
-````c#
-(drugclass == "C3" || drugclass == "C4" || drugclass == "C5")
-````
-
-**IMPROVE**
-````c#
-new string[] { "C3", "C4", "C5" }.Contains(drugclass)
-````
-**Reason**: We don’t need to type ‘drugclass’ every time (sometimes this may lead to an error of mistakenly typing similar property or variable). More items can be added easily.
 
 
 ## [10]
