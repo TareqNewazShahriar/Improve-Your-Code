@@ -1,2 +1,6 @@
 # Improve Your Code
-Here we are showing way how to improve your code snippets from real life mistakes
+
+***This is not a code repository***
+
+Here we are showing how to improve code, from real life examples and mistakes.
+
