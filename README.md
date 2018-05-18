@@ -137,9 +137,9 @@ for (int i = 0; i < moduleArr.Length; i++)
 **IMPROVE**
 ````c#
 license.Module = moduleList
-      	      .OrderBy(x => x.SeqNo)
-            	.Select((item, index) => 	{ item.IsChecked = (moduleBits[index]=='1'); return item; })
-            	.ToList();
+      	            .OrderBy(x => x.SeqNo)
+                    .Select((item, index) => { item.IsChecked = (moduleBits[index]=='1'); return item; })
+            	    .ToList();
 ````
 
 ## [7]
@@ -168,7 +168,6 @@ if (license.ExpiryDate != null)
     {
         code.Append(license.ExpiryDate.Value.Day.ToString());
     }
- 
 }
 ````
 
@@ -216,15 +215,35 @@ var applicationTypeList = new List<SelectListItem>();
 foreach (EnumCollection.ApplicationType applicationType in Enum.GetValues(typeof(EnumCollection.ApplicationType)))
 {
     if (license != null && (license.ApplicationType == applicationType))
-        applicationTypeList.Add(new SelectListItem { Text = Enum.GetName(typeof(EnumCollection.ApplicationType), applicationType), Value = applicationType.ToString(), Selected = true });
+    {
+        applicationTypeList.Add(new SelectListItem 
+            {
+                Text = Enum.GetName(typeof(EnumCollection.ApplicationType), applicationType),
+                Value = applicationType.ToString(),
+                Selected = true
+            });
+    }
     else
-        applicationTypeList.Add(new SelectListItem { Text = Enum.GetName(typeof(EnumCollection.ApplicationType), applicationType), Value = applicationType.ToString() });
+	{
+        applicationTypeList.Add(new SelectListItem
+            {
+                Text = Enum.GetName(typeof(EnumCollection.ApplicationType), applicationType),
+                Value = applicationType.ToString()
+            });
+	}
 }
 ````
 
 **IMPROVE**
 ````c#
-var applicationTypeList = Enum.GetValues(typeof(EnumCollection.ApplicationType)).Cast<EnumCollection.ApplicationType>().Select(x => new SelectListItem() { Text = x.ToString(), Value = x.ToString(), Selected = (license != null && license.ApplicationType == x) }).ToList();
+var applicationTypeList = Enum.GetValues(typeof(EnumCollection.ApplicationType))
+	.Cast<EnumCollection.ApplicationType>()
+	.Select(x => new SelectListItem() 
+	{ 
+		Text = x.ToString(),
+		Value = x.ToString(),
+		Selected = (license != null && license.ApplicationType == x)
+	}).ToList();
 ````
 
 ## [3]
