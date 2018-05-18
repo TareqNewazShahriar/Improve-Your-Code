@@ -109,7 +109,7 @@ string bits = string.Join("", license.Module.OrderBy(x=>x.SeqNo).Select(x => x.I
 **UPDATE:** *Please remove Magic numbers with Constant/Enum/etc. with the use of intent revealing name.*
 
 ## [8.1]
-Now the reverse of above - assign true/false in a property of a object list based on a string having only zero and one:
+Now the reverse of above [8] - assign true/false in a property of an object based on a string having only characters of '0' or '1':
 ````c#
 string module = code.Substring(13, moduleList.Count);
 string[] moduleArr = module.ToCharArray().Select(c => c.ToString()).ToArray();
