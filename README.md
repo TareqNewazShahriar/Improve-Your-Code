@@ -21,7 +21,7 @@ https://docs.google.com/document/d/1C8e8Bw8WUYy79pyo81CS1s84UFuT_EZBcH1r7EeEK7c/
 
 
 
-## [10]
+## [11]
 ````c#
 if (CustomerSelect == 0)
 {
@@ -37,34 +37,8 @@ else
 ````c#
 IsIndividualCustomer = CustomerSelect != 0;
 ````
- 
-## [9]
-````c#
-public enum LicenseType
-{
-   Demo,
-   Licensed
-}
-public class License
-{
-   ...
-   public LicenseType LicenseType { get; set; }
-   ...
-}
-````
-````c#
-if (license.LicenseType.ToString() == "Demo")
-   code.Append("0");   // code is stringBuilder
-else
-   code.Append("1");
-````
 
-**IMPROVE**
-````c#
-code.Append((int)license.LicenseType);
-````
-
-## [8]
+## [10]
 Adding “0” or “1” in a string for each item of an object list based on a condition check:
 ````c#
 class Module
@@ -108,8 +82,8 @@ string bits = string.Join("", license.Module.OrderBy(x=>x.SeqNo).Select(x => x.I
 
 **UPDATE:** *Please remove Magic numbers with Constant/Enum/etc. with the use of intent revealing name.*
 
-## [8.1]
-Now the reverse of above [8] - assign true/false in a property of an object based on a string having only characters of '0' or '1':
+## [10.1]
+Now the reverse of above [10] - assign true/false in a property of an object based on a string having only characters of '0' or '1':
 ````c#
 string module = code.Substring(13, moduleList.Count);
 string[] moduleArr = module.ToCharArray().Select(c => c.ToString()).ToArray();
@@ -141,6 +115,46 @@ license.Module = moduleList
                     .Select((item, index) => { item.IsChecked = (moduleBits[index]=='1'); return item; })
             	    .ToList();
 ````
+
+## [9]
+````c#
+public enum LicenseType
+{
+   Demo,
+   Licensed
+}
+public class License
+{
+   ...
+   public LicenseType LicenseType { get; set; }
+   ...
+}
+````
+````c#
+if (license.LicenseType.ToString() == "Demo")
+   code.Append("0");   // code is stringBuilder
+else
+   code.Append("1");
+````
+
+**IMPROVE**
+````c#
+code.Append((int)license.LicenseType);
+````
+
+## [8]
+````c#
+(drugclass == "C3" || drugclass == "C4" || drugclass == "C5")
+````
+
+**IMPROVE**
+````c#
+new string[] { "C3", "C4", "C5" }.Contains(drugclass)
+````
+
+**Reason:**
+* Doesn’t need to type ‘drugclass’ every time (sometimes this may lead to an error of mistakenly typing similar property or variable).
+* More items can be added (or removed) easily.
 
 ## [7]
 
