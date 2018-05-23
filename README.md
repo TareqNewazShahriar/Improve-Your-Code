@@ -5,8 +5,8 @@
 
 *(This is not a code repository. Here we are showing how to improve the code from real life mistakes, examples)*
 
-#### NOTE:
 ----------------
+#### NOTE
 * Only the code found in real life will be added which can be improved/cleaned. And this project is not for general tips, tricks.
 * Sensitive, unnecessary, irrelevant code parts should be replaced/removed.
 * New point will be added at the top with descend numbering.
