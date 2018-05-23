@@ -1,18 +1,21 @@
 # Improve & Optimize The Code
+<a href="https://tareqnewazshahriar.github.io/Improve-Your-Code/">View as website</a>
 
-*This is not a code repository. Here we are showing how to improve the code from real life mistakes, examples*
+#### Do not just improve or optimize or clean a code and pass by. Share it, keep it..
 
----------------------------------
+*(This is not a code repository. Here we are showing how to improve the code from real life mistakes, examples)*
+
 #### NOTE
+----------------
+----------------
 * Only the code found in real life will be added which can be improved/cleaned. And this project is not for general tips, tricks.
 * Sensitive, unnecessary, irrelevant code parts should be replaced/removed.
 * New point will be added at the top with descend numbering.
 * If a new point is needed to be added after or before another point which is at the middle, number it like ‘10.0’ or ‘10.1’ etc. But do not change any existing number.
----------------------------------
-
-### SO... HERE WE GO
+----------------
 
 
+#### SO... HERE WE GO
 
 ## [11]
 ````c#
