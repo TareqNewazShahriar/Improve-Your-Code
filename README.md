@@ -38,7 +38,7 @@ else
 IsIndividualCustomer = CustomerSelect != 0;
 ````
 
-## [10]
+## [10.1]
 Adding “0” or “1” in a string for each item of an object list based on a condition check:
 ````c#
 class Module
@@ -82,8 +82,8 @@ string bits = string.Join("", license.Module.OrderBy(x=>x.SeqNo).Select(x => x.I
 
 **UPDATE:** *Please remove Magic numbers with Constant/Enum/etc. with the use of intent revealing name.*
 
-## [10.1]
-Now the reverse of above [10] - assign true/false in a property of an object based on a string having only characters of '0' or '1':
+## [10]
+Now the reverse of above [10.1] - assign true/false in a property of an object based on a string having only characters of '0' or '1':
 ````c#
 string module = code.Substring(13, moduleList.Count);
 string[] moduleArr = module.ToCharArray().Select(c => c.ToString()).ToArray();
