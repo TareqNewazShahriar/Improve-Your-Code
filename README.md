@@ -1,21 +1,14 @@
 # Improve & Optimize The Code
 
----------------------------------
-*(This is not a code repository. Here we are showing how to improve code, from real life examples and mistakes)*
-
-This project created/migrated from previous google doc
-https://docs.google.com/document/d/1C8e8Bw8WUYy79pyo81CS1s84UFuT_EZBcH1r7EeEK7c/edit?usp=drivesdk
+*This is not a code repository. Here we are showing how to improve code, from real life examples and mistakes*
 
 ---------------------------------
-
-
 #### NOTE
-
 * Only the code found in real life will be added which can be improved/cleaned. And this project is not for general tips, tricks.
 * Sensitive, unnecessary, irrelevant code parts should be replaced/removed.
 * New point will be added at the top with descend numbering.
 * If a new point is needed to be added after or before another point which is at the middle, number it like ‘10.0’ or ‘10.1’ etc. But do not change any existing number.
-
+---------------------------------
 
 ### SO... HERE WE GO
 
