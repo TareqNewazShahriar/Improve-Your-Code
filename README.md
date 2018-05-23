@@ -1,6 +1,6 @@
 # Improve & Optimize The Code
 
-*This is not a code repository. Here we are showing how to improve code, from real life mistakes, examples*
+*This is not a code repository. Here we are showing how to improve the code from real life mistakes, examples*
 
 ---------------------------------
 #### NOTE
