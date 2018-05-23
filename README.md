@@ -32,7 +32,41 @@ IsIndividualCustomer = CustomerSelect != 0;
 ````
 
 ## [10.1]
-Adding “0” or “1” in a string for each item of an object list based on a condition check:
+Now the reverse of below ([10]), - assign true/false in a property of an object based on a string having only characters of '0' or '1':
+````c#
+string module = code.Substring(13, moduleList.Count);
+string[] moduleArr = module.ToCharArray().Select(c => c.ToString()).ToArray();
+List<Module> objModuleList = new List<Module>();
+ 
+int count = 0;
+for (int i = 0; i < moduleArr.Length; i++)
+{
+    foreach (var objModule in moduleList)
+    {
+        if (objModule.SeqNo == count)
+        {
+        	if (Convert.ToInt16(moduleArr[i]) == 1)
+        	{
+                objModule.IsChecked = true;
+            	objModuleList.Add(objModule);
+            	break;
+        	}
+        }
+    }
+    count++;
+}
+````
+
+**IMPROVE**
+````c#
+license.Module = moduleList
+      	            .OrderBy(x => x.SeqNo)
+                    .Select((item, index) => { item.IsChecked = (moduleBits[index]=='1'); return item; })
+            	    .ToList();
+````
+
+## [10]
+From a list of objects add “0” or “1” in a string, based on a property of each object:
 ````c#
 class Module
 {
@@ -74,40 +108,6 @@ string bits = string.Join("", license.Module.OrderBy(x=>x.SeqNo).Select(x => x.I
 ````
 
 **UPDATE:** *Please remove Magic numbers with Constant/Enum/etc. with the use of intent revealing name.*
-
-## [10]
-Now the reverse of above [10.1] - assign true/false in a property of an object based on a string having only characters of '0' or '1':
-````c#
-string module = code.Substring(13, moduleList.Count);
-string[] moduleArr = module.ToCharArray().Select(c => c.ToString()).ToArray();
-List<Module> objModuleList = new List<Module>();
- 
-int count = 0;
-for (int i = 0; i < moduleArr.Length; i++)
-{
-    foreach (var objModule in moduleList)
-    {
-        if (objModule.SeqNo == count)
-        {
-        	if (Convert.ToInt16(moduleArr[i]) == 1)
-        	{
-                objModule.IsChecked = true;
-            	objModuleList.Add(objModule);
-            	break;
-        	}
-        }
-    }
-    count++;
-}
-````
-
-**IMPROVE**
-````c#
-license.Module = moduleList
-      	            .OrderBy(x => x.SeqNo)
-                    .Select((item, index) => { item.IsChecked = (moduleBits[index]=='1'); return item; })
-            	    .ToList();
-````
 
 ## [9]
 ````c#
