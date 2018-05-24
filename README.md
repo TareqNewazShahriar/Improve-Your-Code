@@ -34,7 +34,7 @@ IsIndividualCustomer = CustomerSelect != 0;
 ````
 
 ## [10.1]
-Now the reverse of below ([10]), - assign true/false in a property of an object based on a string having only characters of '0' or '1':
+Now the reverse of below ([10]), - read a string and assign true/false in items of a list:
 ````c#
 string module = code.Substring(13, moduleList.Count);
 string[] moduleArr = module.ToCharArray().Select(c => c.ToString()).ToArray();
