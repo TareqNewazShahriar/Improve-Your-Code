@@ -31,7 +31,6 @@ else
 ````c#
 IsIndividualCustomer = CustomerSelect != 0;
 ````
--added by @TareqNewazShahriar
 
 ## [10.1]
 Now the reverse of below ([10]), - assign true/false in a property of an object based on a string having only characters of '0' or '1':
