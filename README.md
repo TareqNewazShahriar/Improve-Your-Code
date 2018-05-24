@@ -68,7 +68,7 @@ license.Module = moduleList
 ````
 
 ## [10]
-From a list of objects add “0” or “1” in a string, based on a property of each object:
+Check an object list and add “0” or “1” in a string:
 ````c#
 class Module
 {
