@@ -1,7 +1,7 @@
 # Improve & Optimize The Code
 <a href="https://tareqnewazshahriar.github.io/Improve-Your-Code/">View as website</a>
 
-#### Do not just improve or optimize or clean a code and leave. Share it, keep it... for others.
+#### Do not just improve, optimize or clean a code and leave. Share it, keep it... for others.
 
 *(This is not a code repository. Here we are showing how to improve the code from real life mistakes, examples)*
 
