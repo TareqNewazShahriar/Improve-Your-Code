@@ -5,12 +5,12 @@
 
 *(This is not a code repository. Here we are showing how to improve the code from real life mistakes, examples)*
 
-----------------
+
 #### NOTE
-* Only the code found in real life will be added which can be improved/cleaned. And this project is not for general tips, tricks.
-* Sensitive, unnecessary, irrelevant code parts should be replaced/removed.
-* New point will be added at the top with descend numbering.
-* If a new point is needed to be added after or before another point which is at the middle, number it like ‘10.0’ or ‘10.1’ etc. But do not change any existing number.
+> * Only the code found in real life will be added which can be improved/cleaned. And this project is not for general tips, tricks.
+> * Sensitive, unnecessary, irrelevant code parts should be replaced/removed.
+> * New point will be added at the top with descend numbering.
+> * If a new point is needed to be added after or before another point which is at the middle, number it like ‘10.0’ or ‘10.1’ etc. But do not change any existing number.
 ----------------
 
 
@@ -32,6 +32,7 @@ else
 ````c#
 IsIndividualCustomer = CustomerSelect != 0;
 ````
+-added by @TareqNewazShahriar
 
 ## [10.1]
 Now the reverse of below ([10]), - assign true/false in a property of an object based on a string having only characters of '0' or '1':
