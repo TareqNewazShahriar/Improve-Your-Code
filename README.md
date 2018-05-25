@@ -8,7 +8,7 @@
 
 #### NOTE
 > * Only the code found in real life will be added which can be improved/cleaned. And this project is not for general tips, tricks.
-> * Sensitive, unnecessary, irrelevant code parts should be replaced/removed.
+> * Sensitive, unnecessary, irrelevant code parts should be removed/replaced.
 > * New point will be added at the top with descend numbering.
 > * If a new point is needed to be added after or before another point which is at the middle, number it like ‘10.0’ or ‘10.1’ etc. But do not change any existing number.
 > * [Here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)'s a quick Markdown guide
