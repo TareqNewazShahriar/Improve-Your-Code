@@ -13,6 +13,8 @@
 > * If a new point is needed to be added after or before another point which is at the middle, number it like ‘10.0’ or ‘10.1’ etc. But do not change any existing number.
 > * [Here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)'s a quick Markdown guide
 
+<br/>
+<br/>
 
 #### SO... HERE WE GO
 
