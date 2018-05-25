@@ -1,9 +1,9 @@
 # Improve & Optimize The Code
 <a style="display:none" href="https://tareqnewazshahriar.github.io/Improve-Your-Code/">View as website</a>
 
-#### Do not just improve, optimize or clean a code and leave. Share it, keep it... for others.
+#### Do not just optimize, clean or improve a code and forget - share it, keep it... for others.
 
-*(This is not a code repository. Here we are showing how to improve the code from real life mistakes, examples)*
+This is not a code repository. Here we are showing how to improve the code from real life mistakes, examples
 
 
 #### NOTE
@@ -12,9 +12,9 @@
 > * New point will be added at the top with descend numbering.
 > * If a new point is needed to be added after or before another point which is at the middle, number it like ‘10.0’ or ‘10.1’ etc. But do not change any existing number.
 > * [Here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)'s a quick Markdown guide
+<br/>
+<br/>
 
-<br/>
-<br/>
 
 #### SO... HERE WE GO
 
@@ -34,6 +34,7 @@ else
 ````c#
 IsIndividualCustomer = CustomerSelect != 0;
 ````
+<!-- @TareqNewazShahriar -->
 
 ## [10.1]
 Now the reverse of below ([10]), - read a string and assign true/false in items of a list:
@@ -68,6 +69,7 @@ license.Module = moduleList
                     .Select((item, index) => { item.IsChecked = (moduleBits[index]=='1'); return item; })
             	    .ToList();
 ````
+<!-- @TareqNewazShahriar -->
 
 ## [10]
 Check an object list and add “0” or “1” in a string:
@@ -110,8 +112,9 @@ private StringBuilder ModuleCode(StringBuilder code, List<Module> modulelist, in
 ````c#
 string bits = string.Join("", license.Module.OrderBy(x=>x.SeqNo).Select(x => x.IsChecked ? "1" : "0")));
 ````
+<!-- @TareqNewazShahriar -->
 
-**UPDATE:** *Please remove Magic numbers with Constant/Enum/etc. with the use of intent revealing name.*
+**UPDATE:** *Please remove Magic numbers with Constant/Enum/etc. with the use of intent revealing name.* <!-- @mfhs -->
 
 ## [9]
 ````c#
@@ -138,6 +141,7 @@ else
 ````c#
 code.Append((int)license.LicenseType);
 ````
+<!-- @TareqNewazShahriar -->
 
 ## [8]
 ````c#
@@ -152,6 +156,7 @@ new string[] { "C3", "C4", "C5" }.Contains(drugclass)
 **Reason:**
 * Doesn’t need to type ‘drugclass’ every time (sometimes this may lead to an error of mistakenly typing similar property or variable).
 * More items can be added (or removed) easily.
+<!-- @TareqNewazShahriar -->
 
 ## [7]
 
@@ -186,6 +191,7 @@ if (license.ExpiryDate != null)
 ````c#
 code.Append(license.ExpiryDate.Value.ToString("yyyyMMdd"));
 ````
+<!-- @TareqNewazShahriar -->
 
 ## [6]
 ````c#
@@ -207,6 +213,7 @@ else
 ````c#
 code.Append((license.NoOfUser ?? default(int)).ToString().PadLeft(2, '0'));
 ````
+<!-- @TareqNewazShahriar -->
 
 ## [5]
 ````c#
@@ -218,7 +225,8 @@ code += license.Falg4 ? "0" : "1";
 ````
 
 **Reason:** Should use StringBuilder. For each concatenation, one new string variable will be created.
-**More improvement:** Should be used self-explanatory names which reveal it’s intent instead of Falgs and also remove Magic numbers.
+<!-- @TareqNewazShahriar -->
+**More improvement:** Should be used self-explanatory names which reveal it’s intent instead of Falgs and also remove Magic numbers. <!-- @mfhs -->
 
 ## [4]
 ````c#
@@ -256,6 +264,7 @@ var applicationTypeList = Enum.GetValues(typeof(EnumCollection.ApplicationType))
 		Selected = (license != null && license.ApplicationType == x)
 	}).ToList();
 ````
+<!-- @TareqNewazShahriar -->
 
 ## [3]
 ````c#
@@ -269,6 +278,7 @@ else
 ````c#
 license.ApplicationType = (EnumCollection.ApplicationType)int.Parse(code.Substring(9, 1));
 ````
+<!-- @TareqNewazShahriar -->
 
 ## [2]
 ````c#
@@ -282,6 +292,7 @@ license.ExpiryDate = Convert.ToDateTime(year + "-" + month + "-" + day);
 ````c#
 license.ExpiryDate = DateTime.ParseExact(code.Substring(1, 8), "yyyyMMdd", null);
 ````
+<!-- @TareqNewazShahriar -->
 
 ## [1]
 ````c#
@@ -309,3 +320,4 @@ if (item != null)	// Do not nest; instead skip if item is null
     }
 }
 ````
+<!-- @TareqNewazShahriar -->
