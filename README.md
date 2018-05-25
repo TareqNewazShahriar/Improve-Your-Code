@@ -3,7 +3,7 @@
 
 **Do not just optimize, clean or improve a code and forget - share it, keep it... for others.**
 
-This is not a code repository. Here we are showing how to improve the code from real life mistakes, examples
+This is not a code repository. Here we are showing how to improve the code from real life mistakes, examples.
 
 
 **NOTE**
@@ -11,7 +11,7 @@ This is not a code repository. Here we are showing how to improve the code from 
 > * Sensitive, unnecessary, irrelevant code parts should be removed/replaced.
 > * New point will be added at the top with descend numbering.
 > * If a new point is needed to be added after or before another point which is at the middle, number it like ‘10.0’ or ‘10.1’ etc. But do not change any existing number.
-> * [Here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)'s a quick Markdown guide
+> * [Here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)'s a quick Markdown guide.
 <br/>
 <br/>
 
