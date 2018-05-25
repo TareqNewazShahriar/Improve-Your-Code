@@ -1,5 +1,5 @@
 # Improve & Optimize The Code
-<a href="https://tareqnewazshahriar.github.io/Improve-Your-Code/">View as website</a>
+<a style="display:none" href="https://tareqnewazshahriar.github.io/Improve-Your-Code/">View as website</a>
 
 #### Do not just improve, optimize or clean a code and leave. Share it, keep it... for others.
 
