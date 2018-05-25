@@ -218,7 +218,7 @@ code += license.Falg4 ? "0" : "1";
 ````
 
 **Reason:** Should use StringBuilder. For each concatenation, one new string variable will be created.
-Should be used self-explanatory names which reveal it’s intent instead of Falgs and also remove Magic numbers.
+**More improvement:** Should be used self-explanatory names which reveal it’s intent instead of Falgs and also remove Magic numbers.
 
 ## [4]
 ````c#
