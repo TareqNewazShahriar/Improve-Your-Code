@@ -1,7 +1,9 @@
 # Optimize • Clean • Improve The Code
 <a style="display:none" href="https://tareqnewazshahriar.github.io/Improve-Your-Code/">View as website</a>
-
 <h3>Do not just optimize, clean or improve a code and forget - share it, keep it... for others.</h3>
+
+<br/>
+<br/>
 
 This is not a code repository. Here we are showing how to improve the code from real life mistakes, examples.
 
