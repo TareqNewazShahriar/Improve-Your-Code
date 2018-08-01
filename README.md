@@ -5,7 +5,7 @@
 <br/>
 <br/>
 
-This is not a code repository. Here we are showing how to improve the code from real life mistakes, examples.
+Here we are showing how to improve the code from real life mistakes, examples.
 
 
 **NOTE**
@@ -20,25 +20,7 @@ This is not a code repository. Here we are showing how to improve the code from 
 
 **SO... HERE WE GO**
 
-## [11]
-````c#
-if (CustomerSelect == 0)
-{
-    IsIndividualCustomer = false;
-}
-else
-{
-    IsIndividualCustomer = true;
-}
-````
-
-**IMPROVE**
-````c#
-IsIndividualCustomer = CustomerSelect != 0;
-````
-<!-- @TareqNewazShahriar -->
-
-## [10.1]
+## [11.1]
 Now the reverse of below ([10]), - read a string and assign true/false in items of a list:
 ````c#
 string module = code.Substring(13, moduleList.Count);
@@ -73,7 +55,7 @@ license.Module = moduleList
 ````
 <!-- @TareqNewazShahriar -->
 
-## [10]
+## [11]
 Check an object list and add “0” or “1” in a string:
 ````c#
 class Module
@@ -118,7 +100,7 @@ string bits = string.Join("", license.Module.OrderBy(x=>x.SeqNo).Select(x => x.I
 
 **UPDATE:** *Please remove Magic numbers with Constant/Enum/etc. with the use of intent revealing name.* <!-- @mfhs -->
 
-## [9]
+## [10]
 ````c#
 public enum LicenseType
 {
@@ -145,7 +127,7 @@ code.Append((int)license.LicenseType);
 ````
 <!-- @TareqNewazShahriar -->
 
-## [8]
+## [9]
 ````c#
 (drugclass == "C3" || drugclass == "C4" || drugclass == "C5")
 ````
@@ -160,7 +142,7 @@ new string[] { "C3", "C4", "C5" }.Contains(drugclass)
 * More items can be added (or removed) easily.
 <!-- @TareqNewazShahriar -->
 
-## [7]
+## [8]
 
 ````c#
 // code -- stringBuilder
@@ -195,7 +177,7 @@ code.Append(license.ExpiryDate.Value.ToString("yyyyMMdd"));
 ````
 <!-- @TareqNewazShahriar -->
 
-## [6]
+## [7]
 ````c#
 if (license.NoOfUser != null)
 {
@@ -217,7 +199,7 @@ code.Append((license.NoOfUser ?? default(int)).ToString().PadLeft(2, '0'));
 ````
 <!-- @TareqNewazShahriar -->
 
-## [5]
+## [6]
 ````c#
 string code = string.Empty;
 code += license.Falg1 ? "0" : "1";
@@ -230,7 +212,7 @@ code += license.Falg4 ? "0" : "1";
 <!-- @TareqNewazShahriar -->
 **More improvement:** Should be used self-explanatory names which reveal it’s intent instead of Falgs and also remove Magic numbers. <!-- @mfhs -->
 
-## [4]
+## [5]
 ````c#
 var applicationTypeList = new List<SelectListItem>();
 foreach (EnumCollection.ApplicationType applicationType in Enum.GetValues(typeof(EnumCollection.ApplicationType)))
@@ -268,7 +250,7 @@ var applicationTypeList = Enum.GetValues(typeof(EnumCollection.ApplicationType))
 ````
 <!-- @TareqNewazShahriar -->
 
-## [3]
+## [4]
 ````c#
 if (code.Substring(9, 1) == "0")
     license.ApplicationType = EnumCollection.ApplicationType.Regular;
@@ -282,7 +264,7 @@ license.ApplicationType = (EnumCollection.ApplicationType)int.Parse(code.Substri
 ````
 <!-- @TareqNewazShahriar -->
 
-## [2]
+## [3]
 ````c#
 string year = code.Substring(1, 4);
 string month = code.Substring(5, 2);
@@ -296,7 +278,7 @@ license.ExpiryDate = DateTime.ParseExact(code.Substring(1, 8), "yyyyMMdd", null)
 ````
 <!-- @TareqNewazShahriar -->
 
-## [1]
+## [2]
 ````c#
 if (item != null && item.fullchecked == true)
 {
@@ -321,5 +303,38 @@ if (item != null)	// Do not nest; instead skip if item is null
     ...
     }
 }
+````
+<!-- @TareqNewazShahriar -->
+
+## [1]
+````c#
+if (CustomerSelect == 0)
+{
+    IsIndividualCustomer = false;
+}
+else
+{
+    IsIndividualCustomer = true;
+}
+````
+
+**IMPROVE**
+````c#
+IsIndividualCustomer = CustomerSelect != 0;
+````
+
+*Another version which was found too:*
+````java
+MenuItem item = menu.findItem(R.id.insert_menu);
+if(FirebaseUtil.isAdmin)
+    item.setVisible(true);
+else
+    item.setVisible(false);
+````
+
+*IMPROVE*
+````java
+MenuItem item = menu.findItem(R.id.insert_menu);
+item.setVisible(FirebaseUtil.isAdmin);
 ````
 <!-- @TareqNewazShahriar -->
