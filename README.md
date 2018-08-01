@@ -291,8 +291,9 @@ else if (item != null && item.fullchecked == false)
 ````
 
 **IMPROVE**
+- Do not nest the same check `item != null`, put it as parent check.
 ````c#
-if (item != null)	// Do not nest; instead skip if item is null
+if (item != null)
 {
     if (item.fullchecked)	// Not needed to check with “true” as “item.fullchecked” is itself a boolean
     {
