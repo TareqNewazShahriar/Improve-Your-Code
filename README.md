@@ -171,7 +171,7 @@ if (license.ExpiryDate != null)
 }
 ````
 
-Just found another simlar line of code
+Just found another similar line of code:
 ````c#
 var newCodeDate = $"{DateTime.Today.Year}{DateTime.Today.Month.ToString().PadLeft(2, '0')}{DateTime.Today.Day.ToString().PadLeft(2, '0')}";
 ````
