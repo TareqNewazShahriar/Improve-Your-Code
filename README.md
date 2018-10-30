@@ -20,6 +20,44 @@ Here we are showing how to improve the code from real life mistakes, examples.
 
 **SO... HERE WE GO**
 
+## [12]
+
+Just for modifying some properties, no need to create another list.
+
+````c#
+var response = await _service.GetAll();
+var list = new List<AModel>();
+
+foreach (var item in response.Result)
+{
+    list.Add(new AModel
+    {
+        Id = item.Id,
+        FromDate = DateTime.Parse(item.FromDate, new CultureInfo("en-US")).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture),
+        ToDate = DateTime.Parse(item.ToDate, new CultureInfo("en-US")).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture),
+        PolicyId = item.PolicyId,
+        Count = item.Count,
+        Message = item.Message,
+        RequestDate = DateTime.Parse(item.RequestDate, new CultureInfo("en-US")).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture),
+        Boat = item.Boat,
+        User = item.User,
+        Phone = item.Phone
+    });
+}
+````
+
+**IMPROVE**
+````C#
+var response = await _boatService.GetAllRequestedBoats();
+var list = response.Result as List<RequestBookingViewModel>;
+
+list.ForEach(x => {
+    x.FromDate = DateTime.Parse(x.FromDate, new CultureInfo("en-US")).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+    x.ToDate = DateTime.Parse(x.ToDate, new CultureInfo("en-US")).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+    x.RequestDate = DateTime.Parse(x.RequestDate, new CultureInfo("en-US")).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+});
+````
+
 ## [11.1]
 Now the reverse of below ([10]), - read a string and assign true/false in items of a list:
 ````c#
