@@ -18,8 +18,6 @@ Here we are showing how to improve the code from real life mistakes, examples.
 <br/>
 
 
-**SO... HERE WE GO**
-
 ## [12]
 
 Just for modifying some properties, no need to create another list.
@@ -57,6 +55,7 @@ list.ForEach(x => {
     x.RequestDate = DateTime.Parse(x.RequestDate, new CultureInfo("en-US")).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
 });
 ````
+<!-- @TareqNewazShahriar -->
 
 ## [11.1]
 Now the reverse of below ([10]), - read a string and assign true/false in items of a list:
