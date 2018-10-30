@@ -5,7 +5,7 @@
 <br/>
 <br/>
 
-Here we are showing how to improve the code from real life mistakes, examples.
+Improve the code from real life mistakes.
 
 
 **NOTE**
