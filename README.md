@@ -62,8 +62,8 @@ foreach (var item in response.Result)
 
 **IMPROVE**
 ````C#
-var response = await _boatService.GetAllRequestedBoats();
-var list = response.Result as List<RequestBookingViewModel>;
+var response = await _service.GetAll();
+var list = response.Result as List<Model>;
 
 list.ForEach(x => {
     x.FromDate = DateTime.Parse(x.FromDate, new CultureInfo("en-US")).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
