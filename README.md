@@ -18,6 +18,22 @@ Improve the code from real life mistakes.
 <br/>
 
 
+## [13]
+
+List evaluation inside loop will evaluate it every time. Is it wanted! Know before doing.
+
+````c#
+var result = listA.Where(a => ((listB.Select(b => b.Id).ToList()).Contains(a.Id))).ToList();
+````
+
+**IMPROVE** <br/>
+Evaluate the intermediate list before entering into the loop, then reuse it.
+````c#
+var idList = listB.Select(b => b.Id);
+var result = listA.Where(a => idList.Contains(a.Id)).ToList();
+````
+<!-- @TareqNewazShahriar -->
+
 ## [12]
 
 Linq ForEach method is there to modify some properties of a collection. No need to create another list by copying all the properties.
@@ -58,7 +74,7 @@ list.ForEach(x => {
 <!-- @TareqNewazShahriar -->
 
 ## [11.1]
-Now the reverse of below ([10]), - read a string and assign true/false in items of a list:
+Now the reverse of below, - read a string and assign true/false in items of a list:
 ````c#
 string module = code.Substring(13, moduleList.Count);
 string[] moduleArr = module.ToCharArray().Select(c => c.ToString()).ToArray();
