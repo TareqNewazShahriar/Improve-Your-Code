@@ -20,7 +20,7 @@ Improve the code from real life mistakes.
 
 ## [12]
 
-Just for modifying some properties, no need to create another list.
+Linq ForEach method is there to modify some properties of a collection. No need to create another list by copying all the properties.
 
 ````c#
 var response = await _service.GetAll();
