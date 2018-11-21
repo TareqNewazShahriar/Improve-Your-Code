@@ -17,6 +17,42 @@ Improve the code from real life mistakes.
 <br/>
 <br/>
 
+## [14]
+Return any teamId from the list, if the list is empty Add an item to list and return the Id.
+````c#
+if teamList != null)
+{
+	if (teamList.Count > 0)
+		return teamList.FirstOrDefault().Id;
+	else
+	{
+		var team = Team.NewTeam("Test Team", userId);
+		Save(team);
+		teamList.Add(team);
+		return team.TeamId;
+	}
+}
+
+var team = Team.NewTeam("Test Team", userId);
+Save(team);
+teamList.Add(team);
+return team.TeamId;
+````
+
+**IMPROVE** <br/>
+Removed redundant code.
+````c#
+if list != null && list.Count > 0)
+{
+    return list.FirstOrDefault().Id;
+}
+
+var team = Team.NewTeam("Test Team", userId);
+Save(team);
+teamList.Add(team);
+return team.TeamId;
+````
+<!-- @RaihanKabir -->
 
 ## [13]
 
