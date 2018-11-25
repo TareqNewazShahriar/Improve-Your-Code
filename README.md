@@ -42,7 +42,7 @@ return team.TeamId;
 **IMPROVE** <br/>
 Removed redundant code.
 ````c#
-if list != null && list.Any())
+if (list != null && list.Any())
 {
     return list.First().Id;
 }
