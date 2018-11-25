@@ -1,6 +1,6 @@
 # Optimize • Clean • Improve The Code
 <a style="display:none" href="https://tareqnewazshahriar.github.io/Improve-Your-Code/">View as website</a>
-<h3>Do not just optimize, clean or improve a code and forget - share it, keep it... for others.</h3>
+<h3>Do not just optimize, clean or improve a code and forget. Share it, keep it... for others.</h3>
 
 <br/>
 <br/>
@@ -20,7 +20,7 @@ Improve the code from real life mistakes.
 ## [14]
 Return any teamId from the list, if the list is empty Add an item to list and return the Id.
 ````c#
-if teamList != null)
+if (teamList != null)
 {
 	if (teamList.Count > 0)
 		return teamList.FirstOrDefault().Id;
@@ -42,9 +42,9 @@ return team.TeamId;
 **IMPROVE** <br/>
 Removed redundant code.
 ````c#
-if list != null && list.Count > 0)
+if list != null && list.Any())
 {
-    return list.FirstOrDefault().Id;
+    return list.First().Id;
 }
 
 var team = Team.NewTeam("Test Team", userId);
