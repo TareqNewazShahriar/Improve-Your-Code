@@ -17,6 +17,30 @@ Improve the code from real life mistakes.
 <br/>
 <br/>
 
+
+## [15] #redundancy
+
+Don't redundant unnecessary parts but only necessary part
+
+cshtml
+````cshtml
+if (ModelList == null)
+{
+	<input id="port-ids" type="hidden" />
+}
+else
+{
+	<input id="port-ids" type="hidden" value="@string.Join("+", @Model.First().BoatSearchCriteria.port)" />
+}
+````
+
+**IMPROVED**
+````cshtml
+<input id="search-portid-hidden"
+       type="hidden"
+       value="@(ModelList == null ? "" : string.Join("+", @ModelList.First().ports))" />
+````
+
 ## [14]
 Return any teamId from the list, if the list is empty Add an item to list and return the Id.
 ````c#
@@ -59,14 +83,14 @@ return team.TeamId;
 List evaluation inside loop will evaluate it every time. Is it wanted! Know before doing.
 
 ````c#
-var result = listA.Where(a => ((listB.Select(b => b.Id).ToList()).Contains(a.Id))).ToList();
+var result = listX.Where(x => ((listY.Select(y => y.Id).ToList()).Contains(x.Id))).ToList();
 ````
 
 **IMPROVE** <br/>
 Evaluate the intermediate list before entering into the loop, then reuse it.
 ````c#
-var idList = listB.Select(b => b.Id);
-var result = listA.Where(a => idList.Contains(a.Id)).ToList();
+var idList = listY.Select(y => y.Id);
+var result = listX.Where(x => idList.Contains(x.Id)).ToList();
 ````
 <!-- @TareqNewazShahriar -->
 
@@ -183,7 +207,7 @@ private StringBuilder ModuleCode(StringBuilder code, List<Module> modulelist, in
 
 **IMPROVE**
 ````c#
-string bits = string.Join("", license.Module.OrderBy(x=>x.SeqNo).Select(x => x.IsChecked ? "1" : "0")));
+string bits = string.Join("", license.Module.OrderBy(x => x.SeqNo).Select(x => x.IsChecked ? "1" : "0")));
 ````
 <!-- @TareqNewazShahriar -->
 
