@@ -18,28 +18,33 @@ Improve the code from real life mistakes.
 <br/>
 
 
-## [15] #redundancy
-
-Don't redundant unnecessary parts but only necessary part
-
-cshtml
-````cshtml
+## [15]
+cshtml/razor syntax:
+````html
 if (ModelList == null)
 {
-	<input id="port-ids" type="hidden" />
+    <input id="port-names" type="Text" class="textcenter block bg-whitish" value="" />
 }
 else
 {
-	<input id="port-ids" type="hidden" value="@string.Join("+", @Model.First().BoatSearchCriteria.port)" />
+    <input id="port-names" type="Text" class="textcenter block bg-whitish" value="@string.Join(", ", @ModelList.First().ports)" />
 }
 ````
+1. Here this part ````<input id="port-names" type="Text" class="textcenter block bg-whitish"```` doesn't need to be written twice and logic can be written in ````value```` part.
+2. If we have addition/remove/modification in the ````class```` or in any other attributes, we will have to do that on both blocks.
+
+So it needs to be improved.
 
 **IMPROVED**
-````cshtml
-<input id="search-portid-hidden"
-       type="hidden"
-       value="@(ModelList == null ? "" : string.Join("+", @ModelList.First().ports))" />
+
+````html
+<input id="port-names"
+       type="Text"
+       class="textcenter block bg-whitish"
+       value="@(ModelList == null ? "" : string.Join(", ", @ModelList.First().ports))" />
 ````
+
+Labels: #redundancy
 
 ## [14]
 Return any teamId from the list, if the list is empty Add an item to list and return the Id.
