@@ -18,7 +18,7 @@ Improve the code from real life mistakes.
 <br/>
 
 
-## [15]
+## [15] Duplication
 cshtml/razor syntax:
 ````html
 if (ModelList == null)
@@ -30,10 +30,9 @@ else
     <input id="port-names" type="Text" class="textcenter block bg-whitish" value="@string.Join(", ", @ModelList.First().ports)" />
 }
 ````
+Problems:
 1. Here this part ````<input id="port-names" type="Text" class="textcenter block bg-whitish"```` doesn't need to be written twice and logic can be written in ````value```` part.
-2. If we have addition/remove/modification in the ````class```` or in any other attributes, we will have to do that on both blocks.
-
-So it needs to be improved.
+2. If we have addition/remove/modification, we will have to do that on both blocks.
 
 **IMPROVED**
 
