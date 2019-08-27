@@ -31,8 +31,9 @@ else
 }
 ````
 Problems:
-1. Here this part ````<input id="port-names" type="Text" class="textcenter block bg-whitish"```` doesn't need to be written twice and logic can be written in ````value```` part.
-2. If we have addition/remove/modification, we will have to do that on both blocks.
+1. If we have any change on the `class` or etc, we will have to do that on both blocks.
+2. Here this part ````<input id="port-names" type="Text" class="textcenter block bg-whitish"```` is written twice which is unnecessary. If-else Logic can be written in only ````value```` part.
+
 
 **IMPROVED**
 
