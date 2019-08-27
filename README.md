@@ -19,7 +19,7 @@ Improve the code from real life mistakes.
 
 
 ## [15] Duplication
-cshtml/razor syntax:
+C# + HTML (cshtml) syntax:
 ````html
 if (ModelList == null)
 {
