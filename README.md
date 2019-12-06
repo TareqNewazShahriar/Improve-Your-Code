@@ -5,7 +5,10 @@
 <br/>
 <br/>
 
+_For coders having average coding ability, in terms of efficency or optimization or cleanliness of code._
+
 Improve the code from real life mistakes.
+
 
 
 **NOTE**
@@ -18,7 +21,7 @@ Improve the code from real life mistakes.
 <br/>
 
 
-## [15] Duplication
+## [15] Redundancy
 C# + HTML (cshtml) syntax:
 ````html
 if (ModelList == null)
@@ -27,12 +30,12 @@ if (ModelList == null)
 }
 else
 {
-    <input id="port-names" type="Text" class="textcenter block bg-whitish" value="@string.Join(", ", @ModelList.First().ports)" />
+    <input id="port-names" type="Text" class="textcenter block bg-whitish" value="@string.Join(", ", @ModelList.First().SomeString)" />
 }
 ````
 Problems:
 1. If we have any change on the `class` or etc, we will have to do that on both blocks.
-2. Here this part ````<input id="port-names" type="Text" class="textcenter block bg-whitish"```` is written twice which is unnecessary. If-else Logic can be written in only ````value```` part.
+2. The change is only in ````value```` attribute but entire tag is duplicated.
 
 
 **IMPROVED**
@@ -41,10 +44,12 @@ Problems:
 <input id="port-names"
        type="Text"
        class="textcenter block bg-whitish"
-       value="@(ModelList == null ? "" : string.Join(", ", @ModelList.First().ports))" />
+       value="@(ModelList == null ? "" : string.Join(", ", @ModelList.First().SomeString))" />
 ````
 
 Labels: #redundancy
+
+<!-- @TareqNewazShahriar -->
 
 ## [14]
 Return any teamId from the list, if the list is empty Add an item to list and return the Id.
