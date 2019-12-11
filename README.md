@@ -21,6 +21,24 @@ Improve the code from real life mistakes.
 <br/>
 
 
+## [16] Not using parallel execution
+C#:
+````c#
+var categories = await _api.getCategories();
+var boats = await _api.getBoats();
+````
+
+Problems: Here, those api methods are `async`, so we can leverage that, start them simultaneously instead of start-finish one by one.
+
+**IMPROVED**
+````c#
+var getCategoriesTask = _api.getCategories();
+var getBoatsTask = _api.getBoats();
+
+var categories = await getCategoriesTask;
+var boats = await getBoatsTask;
+````
+
 ## [15] Redundancy
 C# + HTML (cshtml) syntax:
 ````html
@@ -73,7 +91,7 @@ teamList.Add(team);
 return team.TeamId;
 ````
 
-**IMPROVE** <br/>
+**IMPROVED** <br/>
 Removed redundant code.
 ````c#
 if (list != null && list.Any())
