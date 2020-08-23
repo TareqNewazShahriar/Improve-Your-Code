@@ -1,21 +1,18 @@
 # Optimize • Clean • Improve The Code
 <a style="display:none" href="https://tareqnewazshahriar.github.io/Improve-Your-Code/">View as website</a>
+
 <h3>Do not just optimize, clean or improve a code and forget. Share it, keep it... for others.</h3>
+Learn from real life mistakes and improve it, in terms of efficency, optimization and cleanliness.
 
-<br/>
-<br/>
-
-_For coders having average coding ability, in terms of efficency or optimization or cleanliness of code._
-
-Improve the code from real life mistakes.
-
-
+<br>
+<br>
+<br>
 
 **NOTE**
-> * Only the code found in real life will be added which can be improved/cleaned. And this project is not for general tips, tricks.
+> * Only real life code will be added which can be improved/cleaned. And this project is not for general tips, tricks.
 > * Sensitive, unnecessary, irrelevant code parts should be removed/replaced.
 > * New point will be added at the top with descend numbering.
-> * If a new point is needed to be added after or before another point which is at the middle, number it like ‘10.0’ or ‘10.1’ etc. But do not change any existing number.
+> * If a new point is needed to add after or before another point which is at the middle, number it like ‘10.0’ (to add before 10) or ‘10.1’ (to add after 10) etc. But do not change any existing number.
 > * [Here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)'s a quick Markdown guide.
 <br/>
 <br/>
