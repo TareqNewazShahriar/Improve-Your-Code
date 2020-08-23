@@ -6,7 +6,6 @@ Learn from real life mistakes and improve it, in terms of efficency, optimizatio
 
 <br>
 <br>
-<br>
 
 **NOTE**
 > * Only real life code will be added which can be improved/cleaned. And this project is not for general tips, tricks.
