@@ -22,6 +22,7 @@ Improve the code from real life mistakes.
 
 
 ## [16] Not using parallel execution
+**Original code**
 C#:
 ````c#
 var categories = await _api.getCategories();
@@ -41,6 +42,8 @@ var boats = await getBoatsTask;
 
 ## [15] Redundancy
 C# + HTML (cshtml) syntax:
+
+**Original code**
 ````html
 if (ModelList == null)
 {
@@ -71,6 +74,8 @@ Labels: #redundancy
 
 ## [14]
 Return any teamId from the list, if the list is empty Add an item to list and return the Id.
+
+**Original code**
 ````c#
 if (teamList != null)
 {
@@ -108,8 +113,9 @@ return team.TeamId;
 
 ## [13]
 
-List evaluation inside loop will evaluate it every time. Is it wanted! Know before doing.
+List evaluation inside loop will evaluate it every time. Is it desired! Know before doing.
 
+**Original code**
 ````c#
 var result = listX.Where(x => ((listY.Select(y => y.Id).ToList()).Contains(x.Id))).ToList();
 ````
@@ -126,6 +132,7 @@ var result = listX.Where(x => idList.Contains(x.Id)).ToList();
 
 Linq ForEach method is there to modify some properties of a collection. No need to create another list by copying all the properties.
 
+**Original code**
 ````c#
 var response = await _service.GetAll();
 var list = new List<AModel>();
@@ -163,6 +170,8 @@ list.ForEach(x => {
 
 ## [11.1]
 Now the reverse of below, - read a string and assign true/false in items of a list:
+
+**Original code**
 ````c#
 string module = code.Substring(13, moduleList.Count);
 string[] moduleArr = module.ToCharArray().Select(c => c.ToString()).ToArray();
@@ -197,7 +206,7 @@ license.Module = moduleList
 <!-- @TareqNewazShahriar -->
 
 ## [11]
-Check an object list and add “0” or “1” in a string:
+Iterate through a collection of object and check for a boolean property; add “0” or “1” in a string:
 ````c#
 class Module
 {
@@ -207,6 +216,7 @@ class Module
 }
 ````
 
+**Original code**
 ````c#
 int count = 0;
 foreach (var module in license.Modules)
@@ -242,6 +252,7 @@ string bits = string.Join("", license.Module.OrderBy(x => x.SeqNo).Select(x => x
 **UPDATE:** *Please remove Magic numbers with Constant/Enum/etc. with the use of intent revealing name.* <!-- @mfhs -->
 
 ## [10]
+
 ````c#
 public enum LicenseType
 {
@@ -255,6 +266,8 @@ public class License
    ...
 }
 ````
+
+**Original code**
 ````c#
 if (license.LicenseType.ToString() == "Demo")
    code.Append("0");   // code is stringBuilder
@@ -269,6 +282,7 @@ code.Append((int)license.LicenseType);
 <!-- @TareqNewazShahriar -->
 
 ## [9]
+**Original code**
 ````c#
 (drugclass == "C3" || drugclass == "C4" || drugclass == "C5")
 ````
@@ -284,7 +298,7 @@ new string[] { "C3", "C4", "C5" }.Contains(drugclass)
 <!-- @TareqNewazShahriar -->
 
 ## [8]
-
+**Original code**
 ````c#
 // code -- stringBuilder
 if (license.ExpiryDate != null)
@@ -324,6 +338,7 @@ code.Append(license.ExpiryDate.Value.ToString("yyyyMMdd"));
 <!-- @TareqNewazShahriar -->
 
 ## [7]
+**Original code**
 ````c#
 if (license.NoOfUser != null)
 {
@@ -346,6 +361,7 @@ code.Append((license.NoOfUser ?? default(int)).ToString().PadLeft(2, '0'));
 <!-- @TareqNewazShahriar -->
 
 ## [6]
+**Original code**
 ````c#
 string code = string.Empty;
 code += license.Falg1 ? "0" : "1";
@@ -359,6 +375,7 @@ code += license.Falg4 ? "0" : "1";
 **More improvement:** Should be used self-explanatory names which reveal it’s intent instead of Falgs and also remove Magic numbers. <!-- @mfhs -->
 
 ## [5]
+**Original code**
 ````c#
 var applicationTypeList = new List<SelectListItem>();
 foreach (EnumCollection.ApplicationType applicationType in Enum.GetValues(typeof(EnumCollection.ApplicationType)))
@@ -397,6 +414,7 @@ var applicationTypeList = Enum.GetValues(typeof(EnumCollection.ApplicationType))
 <!-- @TareqNewazShahriar -->
 
 ## [4]
+**Original code**
 ````c#
 if (code.Substring(9, 1) == "0")
     license.ApplicationType = EnumCollection.ApplicationType.Regular;
@@ -411,6 +429,7 @@ license.ApplicationType = (EnumCollection.ApplicationType)int.Parse(code.Substri
 <!-- @TareqNewazShahriar -->
 
 ## [3]
+**Original code**
 ````c#
 string year = code.Substring(1, 4);
 string month = code.Substring(5, 2);
@@ -425,6 +444,7 @@ license.ExpiryDate = DateTime.ParseExact(code.Substring(1, 8), "yyyyMMdd", null)
 <!-- @TareqNewazShahriar -->
 
 ## [2]
+**Original code**
 ````c#
 if (item != null && item.fullchecked == true)
 {
@@ -454,6 +474,7 @@ if (item != null)
 <!-- @TareqNewazShahriar -->
 
 ## [1]
+**Original code**
 ````c#
 if (CustomerSelect == 0)
 {
