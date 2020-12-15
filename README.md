@@ -5,7 +5,7 @@
 
 This is a continuous project to keep history of our or others coding mistakes that we found in our real life. Anyone can add a code here, in fact everyone is highly encouraged to add real-life mistakes here. This is really usefull for programmers of every stage; mostly newcomer or intermediate.
 <br>
-Finally... isn't it fun to look back and see the mistakes that we found. So please... go ahead and create a pull request.
+Finally... isn't it fun to look back and see the mistakes. So please... go ahead and create a pull request.
 
 <br>
 <br>
