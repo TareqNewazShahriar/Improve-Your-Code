@@ -23,15 +23,15 @@ Finally... isn't it fun to look back and see the mistakes. So please... go ahead
 ## [16] Not using parallel execution
 **Original code**
 C#:
-````c#
+```c#
 var categories = await _api.getCategories();
 var boats = await _api.getBoats();
-````
+```
 
 Story: Yep, found that code. Here, those api methods are `async`, therefore we can leverage that and execute them simultaneously.
 
 **IMPROVED**
-````c#
+```c#
 var getCategoriesTask = _api.getCategories();
 var getBoatsTask = _api.getBoats();
 
@@ -39,13 +39,13 @@ var getBoatsTask = _api.getBoats();
 
 var categories = await getCategoriesTask;
 var boats = await getBoatsTask;
-````
+```
 
 ## [15] Redundancy
 C# + HTML (cshtml) syntax:
 
 **Original code**
-````html
+```html
 if (ModelList == null)
 {
     <input id="port-names" type="Text" class="textcenter block bg-whitish" value="" />
@@ -54,20 +54,20 @@ else
 {
     <input id="port-names" type="Text" class="textcenter block bg-whitish" value="@string.Join(", ", @ModelList.First().SomeString)" />
 }
-````
+```
 Problems:
 1. If we have any change on the `class` or etc, we will have to do that on both blocks.
-2. The change is only in ````value```` attribute but entire tag is duplicated.
+2. The change is only in ```value``` attribute but entire tag is duplicated.
 
 
 **IMPROVED**
 
-````html
+```html
 <input id="port-names"
        type="Text"
        class="textcenter block bg-whitish"
        value="@(ModelList == null ? "" : string.Join(", ", @ModelList.First().SomeString))" />
-````
+```
 
 Labels: #redundancy
 
@@ -77,7 +77,7 @@ Labels: #redundancy
 Return any teamId from the list, if the list is empty Add an item to list and return the Id.
 
 **Original code**
-````c#
+```c#
 if (teamList != null)
 {
 	if (teamList.Count > 0)
@@ -95,11 +95,11 @@ var team = Team.NewTeam("Test Team", userId);
 Save(team);
 teamList.Add(team);
 return team.TeamId;
-````
+```
 
 **IMPROVED** <br/>
 Removed redundant code.
-````c#
+```c#
 if (list != null && list.Any())
 {
     return list.First().Id;
@@ -109,7 +109,7 @@ var team = Team.NewTeam("Test Team", userId);
 Save(team);
 teamList.Add(team);
 return team.TeamId;
-````
+```
 <!-- @RaihanKabir -->
 
 ## [13]
@@ -117,16 +117,16 @@ return team.TeamId;
 List evaluation inside loop will evaluate it every time. Is it desired! Know before doing.
 
 **Original code**
-````c#
+```c#
 var result = listX.Where(x => ((listY.Select(y => y.Id).ToList()).Contains(x.Id))).ToList();
-````
+```
 
 **IMPROVE** <br/>
 Evaluate the intermediate list before entering into the loop, then reuse it.
-````c#
+```c#
 var idList = listY.Select(y => y.Id);
 var result = listX.Where(x => idList.Contains(x.Id)).ToList();
-````
+```
 <!-- @TareqNewazShahriar -->
 
 ## [12]
@@ -134,7 +134,7 @@ var result = listX.Where(x => idList.Contains(x.Id)).ToList();
 Linq ForEach method is there to modify some properties of a collection. No need to create another list by copying all the properties.
 
 **Original code**
-````c#
+```c#
 var response = await _service.GetAll();
 var list = new List<AModel>();
 
@@ -154,10 +154,10 @@ foreach (var item in response.Result)
         Phone = item.Phone
     });
 }
-````
+```
 
 **IMPROVE**
-````C#
+```C#
 var response = await _service.GetAll();
 var list = response.Result as List<Model>;
 
@@ -166,14 +166,14 @@ list.ForEach(x => {
     x.ToDate = DateTime.Parse(x.ToDate, new CultureInfo("en-US")).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
     x.RequestDate = DateTime.Parse(x.RequestDate, new CultureInfo("en-US")).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
 });
-````
+```
 <!-- @TareqNewazShahriar -->
 
 ## [11.1]
 Now the reverse of below, - read a string and assign true/false in items of a list:
 
 **Original code**
-````c#
+```c#
 string module = code.Substring(13, moduleList.Count);
 string[] moduleArr = module.ToCharArray().Select(c => c.ToString()).ToArray();
 List<Module> objModuleList = new List<Module>();
@@ -195,30 +195,30 @@ for (int i = 0; i < moduleArr.Length; i++)
     }
     count++;
 }
-````
+```
 
 **IMPROVE**
-````c#
+```c#
 license.Module = moduleList
       	            .OrderBy(x => x.SeqNo)
                     .Select((item, index) => { item.IsChecked = (moduleBits[index]=='1'); return item; })
             	    .ToList();
-````
+```
 <!-- @TareqNewazShahriar -->
 
 ## [11]
 Iterate through a collection of object and check for a boolean property; add “0” or “1” in a string:
-````c#
+```c#
 class Module
 {
     public string Name { get; set; }
     public int SeqNo { get; set; }
     public bool IsChecked { get; set; }
 }
-````
+```
 
 **Original code**
-````c#
+```c#
 int count = 0;
 foreach (var module in license.Modules)
 {
@@ -242,19 +242,19 @@ private StringBuilder ModuleCode(StringBuilder code, List<Module> modulelist, in
  
     return code.Append("0");
 }
-````
+```
 
 **IMPROVE**
-````c#
+```c#
 string bits = string.Join("", license.Module.OrderBy(x => x.SeqNo).Select(x => x.IsChecked ? "1" : "0")));
-````
+```
 <!-- @TareqNewazShahriar -->
 
 **UPDATE:** *Please remove Magic numbers with Constant/Enum/etc. with the use of intent revealing name.* <!-- @mfhs -->
 
 ## [10]
 
-````c#
+```c#
 public enum LicenseType
 {
    Demo,
@@ -266,32 +266,32 @@ public class License
    public LicenseType LicenseType { get; set; }
    ...
 }
-````
+```
 
 **Original code**
-````c#
+```c#
 if (license.LicenseType.ToString() == "Demo")
    code.Append("0");   // code is stringBuilder
 else
    code.Append("1");
-````
+```
 
 **IMPROVE**
-````c#
+```c#
 code.Append((int)license.LicenseType);
-````
+```
 <!-- @TareqNewazShahriar -->
 
 ## [9]
 **Original code**
-````c#
+```c#
 (drugclass == "C3" || drugclass == "C4" || drugclass == "C5")
-````
+```
 
 **IMPROVE**
-````c#
+```c#
 new string[] { "C3", "C4", "C5" }.Contains(drugclass)
-````
+```
 
 **Reason:**
 * Doesn’t need to type ‘drugclass’ every time (sometimes this may lead to an error of mistakenly typing similar property or variable).
@@ -300,7 +300,7 @@ new string[] { "C3", "C4", "C5" }.Contains(drugclass)
 
 ## [8]
 **Original code**
-````c#
+```c#
 // code -- stringBuilder
 if (license.ExpiryDate != null)
 {
@@ -325,22 +325,22 @@ if (license.ExpiryDate != null)
         code.Append(license.ExpiryDate.Value.Day.ToString());
     }
 }
-````
+```
 
 Just found another similar line of code:
-````c#
+```c#
 var newCodeDate = $"{DateTime.Today.Year}{DateTime.Today.Month.ToString().PadLeft(2, '0')}{DateTime.Today.Day.ToString().PadLeft(2, '0')}";
-````
+```
 
 **IMPROVE**
-````c#
+```c#
 code.Append(license.ExpiryDate.Value.ToString("yyyyMMdd"));
-````
+```
 <!-- @TareqNewazShahriar -->
 
 ## [7]
 **Original code**
-````c#
+```c#
 if (license.NoOfUser != null)
 {
     if (license.NoOfUser < 10)
@@ -353,23 +353,23 @@ if (license.NoOfUser != null)
 }
 else
 	code.Append("00");
-````
+```
 
 **IMPROVE**
-````c#
+```c#
 code.Append((license.NoOfUser ?? default(int)).ToString().PadLeft(2, '0'));
-````
+```
 <!-- @TareqNewazShahriar -->
 
 ## [6]
 **Original code**
-````c#
+```c#
 string code = string.Empty;
 code += license.Falg1 ? "0" : "1";
 code += license.Falg2 ? “yyyyMMdd” : string.Empty;
 code += license.Falg3 ? "0" : "1";
 code += license.Falg4 ? "0" : "1";
-````
+```
 
 **Reason:** Should use StringBuilder. For each concatenation, one new string variable will be created.
 <!-- @TareqNewazShahriar -->
@@ -377,7 +377,7 @@ code += license.Falg4 ? "0" : "1";
 
 ## [5]
 **Original code**
-````c#
+```c#
 var applicationTypeList = new List<SelectListItem>();
 foreach (EnumCollection.ApplicationType applicationType in Enum.GetValues(typeof(EnumCollection.ApplicationType)))
 {
@@ -399,10 +399,10 @@ foreach (EnumCollection.ApplicationType applicationType in Enum.GetValues(typeof
             });
 	}
 }
-````
+```
 
 **IMPROVE**
-````c#
+```c#
 var applicationTypeList = Enum.GetValues(typeof(EnumCollection.ApplicationType))
 	.Cast<EnumCollection.ApplicationType>()
 	.Select(x => new SelectListItem() 
@@ -411,42 +411,42 @@ var applicationTypeList = Enum.GetValues(typeof(EnumCollection.ApplicationType))
 		Value = x.ToString(),
 		Selected = (license != null && license.ApplicationType == x)
 	}).ToList();
-````
+```
 <!-- @TareqNewazShahriar -->
 
 ## [4]
 **Original code**
-````c#
+```c#
 if (code.Substring(9, 1) == "0")
     license.ApplicationType = EnumCollection.ApplicationType.Regular;
 else
     license.ApplicationType = EnumCollection.ApplicationType.Education;
-````
+```
 
 **IMPROVE**
-````c#
+```c#
 license.ApplicationType = (EnumCollection.ApplicationType)int.Parse(code.Substring(9, 1));
-````
+```
 <!-- @TareqNewazShahriar -->
 
 ## [3]
 **Original code**
-````c#
+```c#
 string year = code.Substring(1, 4);
 string month = code.Substring(5, 2);
 string day = code.Substring(7, 2);
 license.ExpiryDate = Convert.ToDateTime(year + "-" + month + "-" + day);
-````
+```
 
 **IMPROVE**
-````c#
+```c#
 license.ExpiryDate = DateTime.ParseExact(code.Substring(1, 8), "yyyyMMdd", null);
-````
+```
 <!-- @TareqNewazShahriar -->
 
 ## [2]
 **Original code**
-````c#
+```c#
 if (item != null && item.fullchecked == true)
 {
   ...
@@ -455,11 +455,11 @@ else if (item != null && item.fullchecked == false)
 {
   ...
 }
-````
+```
 
 **IMPROVE**
 - Do not nest the same check `item != null`, put it as parent check.
-````c#
+```c#
 if (item != null)
 {
     if (item.fullchecked)	// Not needed to check with “true” as “item.fullchecked” is itself a boolean
@@ -471,12 +471,12 @@ if (item != null)
     ...
     }
 }
-````
+```
 <!-- @TareqNewazShahriar -->
 
 ## [1]
 **Original code**
-````c#
+```c#
 if (CustomerSelect == 0)
 {
     IsIndividualCustomer = false;
@@ -485,25 +485,25 @@ else
 {
     IsIndividualCustomer = true;
 }
-````
+```
 
 **IMPROVE**
-````c#
+```c#
 IsIndividualCustomer = CustomerSelect != 0;
-````
+```
 
 *Another version which was found too:*
-````java
+```java
 MenuItem item = menu.findItem(R.id.insert_menu);
 if(FirebaseUtil.isAdmin)
     item.setVisible(true);
 else
     item.setVisible(false);
-````
+```
 
 *IMPROVE*
-````java
+```java
 MenuItem item = menu.findItem(R.id.insert_menu);
 item.setVisible(FirebaseUtil.isAdmin);
-````
+```
 <!-- @TareqNewazShahriar -->
