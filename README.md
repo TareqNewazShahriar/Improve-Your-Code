@@ -25,7 +25,7 @@ var categories = await _api.getCategories();
 var boats = await _api.getBoats();
 ````
 
-Problems: Here, those api methods are `async`, so we can leverage that, start them simultaneously instead of start-finish one by one.
+Problems: Here, those api methods are `async`, so we can leverage that, execute them simultaneously.
 
 **IMPROVED**
 ````c#
