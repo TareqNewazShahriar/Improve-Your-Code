@@ -1,17 +1,20 @@
-# Optimize • Clean • Improve The Code
-<a style="display:none" href="https://tareqnewazshahriar.github.io/Improve-Your-Code/">View as website</a>
+# Coding Mistakes from Real-life
+<a style="display:none" href="https://tareqnewazshahriar.github.io/Real-life-Coding-Mistakes/">View as website</a>
 
-<h3>Do not just optimize, clean or improve a code and forget. Keep it, share it,... for future.</h3>
-Learn from real life mistakes and improve it, in terms of efficency, optimization and cleanliness.
+**Do not just fix or improve a code and forget. Keep it, share it,... for future.**
+
+This is a continuous project to keep history of our or others coding mistakes that we found in our real life. Anyone can add a code here, in fact everyone is highly encouraged to add real-life mistakes here. This is really usefull for programmers of every stage; mostly newcomer or intermediate.
+<br>
+Finally... isn't it fun to look back and see the mistakes that we found. So please... go ahead and create a pull request.
 
 <br>
 <br>
 
 **NOTE**
-* Only real life code will be added which can be improved. And this project is not for general tips, tricks.
-* Sensitive or irrelevant code parts should be removed/replaced.
+* Only real life code will be added which can be improved; this project is not for general tips, tricks.
+* Sensitive or irrelevant code parts should be replaced/removed.
 * New point will be added at the top with descend numbering.
-* If a new point is needed to add after or before another point which is at the middle, number it like ‘10.0’ (to add before 10) or ‘10.1’ (to add after 10) etc. But do not change any existing number.
+* If a new relevant point is needed to be added after or before another point which is at the middle, number it like ‘10.0’ (to add under 10) or ‘10.1’ (to add above 10) etc. But do not change any existing number.
 * [Here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)'s a quick Markdown guide.
 <br/>
 <br/>
@@ -25,12 +28,14 @@ var categories = await _api.getCategories();
 var boats = await _api.getBoats();
 ````
 
-Problems: Here, those api methods are `async`, so we can leverage that, execute them simultaneously.
+Story: Yep, found that code. Here, those api methods are `async`, therefore we can leverage that and execute them simultaneously.
 
 **IMPROVED**
 ````c#
 var getCategoriesTask = _api.getCategories();
 var getBoatsTask = _api.getBoats();
+
+// So both methods started
 
 var categories = await getCategoriesTask;
 var boats = await getBoatsTask;
