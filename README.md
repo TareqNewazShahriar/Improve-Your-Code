@@ -20,15 +20,12 @@ Finally... isn't it fun to look back and see the mistakes. So please... go ahead
 <br/>
 
 
-## [16] Not using parallel execution
-**Original code**
-C#:
+## [16] Not leveraging parallel execution
+**Original code (C#)**
 ```c#
 var categories = await _api.getCategories();
 var boats = await _api.getBoats();
 ```
-
-Story: Yep, found that code. Here, those api methods are `async`, therefore we can leverage that and execute them simultaneously.
 
 **IMPROVED**
 ```c#
@@ -74,8 +71,6 @@ Labels: #redundancy
 <!-- @TareqNewazShahriar -->
 
 ## [14]
-Return any teamId from the list, if the list is empty Add an item to list and return the Id.
-
 **Original code**
 ```c#
 if (teamList != null)
@@ -96,6 +91,9 @@ Save(team);
 teamList.Add(team);
 return team.TeamId;
 ```
+
+**What this code is trying to do**
+Returns first teamId from a team list; if the list is empty add an item to the list and return the Id.
 
 **IMPROVED** <br/>
 Removed redundant code.
