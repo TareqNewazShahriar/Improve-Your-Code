@@ -52,9 +52,10 @@ else
     <input id="port-names" type="Text" class="textcenter block bg-whitish" value="@string.Join(", ", @ModelList.First().SomeString)" />
 }
 ```
-Problems:
-1. If we have any change on the `class` or etc, we will have to do that on both blocks.
-2. The change is only in ```value``` attribute but entire tag is duplicated.
+
+The change is only in ```value``` attribute but the entire tag is duplicated. So the problem is-
+
+* If we have any change on anywhere other than value attribute, we will have to keep it in mind that we will have to do that on both blocks.
 
 
 **IMPROVED**
