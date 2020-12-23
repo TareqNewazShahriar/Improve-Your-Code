@@ -1,7 +1,7 @@
 # Coding Mistakes from Real-life
 <a style="display:none" href="https://tareqnewazshahriar.github.io/Real-life-Coding-Mistakes/">View as website</a>
 
-**Do not just fix or improve a code and forget. Keep it, share it,... for future.**
+**Do not just fix or improve a code and forget; keep it, share it - for all.**
 
 This is a continuous project to keep history of our or others coding mistakes that we found in our real life. Anyone can add a code here, in fact everyone is highly encouraged to add real-life mistakes here. This is really usefull for programmers of every stage; mostly newcomer or intermediate.
 <br>
