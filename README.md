@@ -495,16 +495,14 @@ IsIndividualCustomer = CustomerSelect != 0;
 
 *Another version which was found too:*
 ```java
-MenuItem item = menu.findItem(R.id.insert_menu);
-if(FirebaseUtil.isAdmin)
-    item.setVisible(true);
+if(isAdmin)
+    menuItem.setVisible(true);
 else
-    item.setVisible(false);
+    menuItem.setVisible(false);
 ```
 
 *IMPROVE*
 ```java
-MenuItem item = menu.findItem(R.id.insert_menu);
-item.setVisible(FirebaseUtil.isAdmin);
+menuItem.setVisible(isAdmin);
 ```
 <!-- @TareqNewazShahriar -->
