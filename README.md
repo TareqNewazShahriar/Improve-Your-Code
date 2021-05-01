@@ -17,7 +17,7 @@ Finally... isn't it fun to look back and see the mistakes. So please... go ahead
 * If a new relevant point is needed to be added after or before another point which is at the middle, number it like ‘10.0’ (to add under 10) or ‘10.1’ (to add above 10). But do not change any existing number.
 * This project is not for general tips, tricks
 <br/>
-*[Here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)'s a quick Markdown guide.*
+<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Here<a/>'s a quick Markdown guide.
 <br/>
 <br/>
 
