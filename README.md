@@ -11,11 +11,13 @@ Finally... isn't it fun to look back and see the mistakes. So please... go ahead
 <br>
 
 **NOTE**
-* Only real life code will be added which can be improved; this project is not for general tips, tricks.
-* Sensitive or irrelevant code parts should be replaced/removed.
+* Only real life code will be added that you found in a project.
+* Before adding here, sensitive or irrelevant code parts should be replaced/removed.
 * New point will be added at the top with descend numbering.
-* If a new relevant point is needed to be added after or before another point which is at the middle, number it like ‘10.0’ (to add under 10) or ‘10.1’ (to add above 10) etc. But do not change any existing number.
-* [Here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)'s a quick Markdown guide.
+* If a new relevant point is needed to be added after or before another point which is at the middle, number it like ‘10.0’ (to add under 10) or ‘10.1’ (to add above 10). But do not change any existing number.
+* This project is not for general tips, tricks
+<br/>
+*[Here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)'s a quick Markdown guide.*
 <br/>
 <br/>
 
