@@ -1,5 +1,5 @@
 # Real-life Coding Mistakes
-<a style="display:none" href="https://tareqnewazshahriar.github.io/Real-life-Coding-Mistakes/">View as website</a>
+<a style="display:none" href="https://tareqnewazshahriar.github.io/real-life-coding-mistakes/">View as website</a>
 
 **Do not just fix or improve a code and forget; keep it, share it - for all.**
 
