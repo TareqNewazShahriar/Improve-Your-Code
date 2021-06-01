@@ -12,13 +12,12 @@ Finally... isn't it appealing to look back and see the memoriy of mistakes. So p
 <br>
 
 **NOTE**
-* Only real life code will be added that you found in a project.
-* Before adding here, sensitive or irrelevant code parts should be replaced/removed.
+* Replace or remove sensitive/irrelevant code parts.
 * New point will be added at the top with descend numbering.
 * If a new relevant point is needed to be added after or before another point which is at the middle, number it like ‘10.0’ (to add under 10) or ‘10.1’ (to add above 10). But do not change any existing number.
-* This project is not for general tips, tricks
+* Only real-life mistakes will be added. For coding tips, tricks, optimization, contribute to that project https://github.com/TareqNewazShahriar/coding-tips-tricks-optimization.
 <br/>
-<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Here<a/>'s a quick Markdown guide.
+<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Here<a/>'s a quick Markdown guide, who needs it.
 <br/>
 <br/>
 
