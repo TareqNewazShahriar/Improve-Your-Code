@@ -1,8 +1,8 @@
 # Real-life Coding Mistakes
 <a style="display:none" href="https://tareqnewazshahriar.github.io/real-life-coding-mistakes/">View as website</a>
 
+**Our learning from many years of mistakes, will be a short and sweet path for others.**  
 **Do not just fix or improve a code and forget; keep it, share it - for all.**
-**Our learning from many years of mistakes, will be a short and sweet path for others.**
 
 This is a end-less project to keep history of our or others coding mistakes that we've found in our real-life. Anyone can add code here; in fact everyone is highly encouraged to add real-life mistakes. This is really usefull for programmers of every stage (don't jsut shortlist novice or intermediate programmers).
 <br>
@@ -79,15 +79,15 @@ Labels: #redundancy
 ```c#
 if (teamList != null)
 {
-	if (teamList.Count > 0)
-		return teamList.FirstOrDefault().Id;
-	else
-	{
-		var team = Team.NewTeam("Test Team", userId);
-		Save(team);
-		teamList.Add(team);
-		return team.TeamId;
-	}
+   if (teamList.Count > 0)
+      return teamList.FirstOrDefault().Id;
+   else
+   {
+      var team = Team.NewTeam("Test Team", userId);
+      Save(team);
+      teamList.Add(team);
+      return team.TeamId;
+   }
 }
 
 var team = Team.NewTeam("Test Team", userId);
@@ -187,12 +187,12 @@ for (int i = 0; i < moduleArr.Length; i++)
     {
         if (objModule.SeqNo == count)
         {
-        	if (Convert.ToInt16(moduleArr[i]) == 1)
-        	{
+           if (Convert.ToInt16(moduleArr[i]) == 1)
+           {
                 objModule.IsChecked = true;
-            	objModuleList.Add(objModule);
-            	break;
-        	}
+               objModuleList.Add(objModule);
+               break;
+           }
         }
     }
     count++;
@@ -202,9 +202,9 @@ for (int i = 0; i < moduleArr.Length; i++)
 **IMPROVE**
 ```c#
 license.Module = moduleList
-      	            .OrderBy(x => x.SeqNo)
+                     .OrderBy(x => x.SeqNo)
                     .Select((item, index) => { item.IsChecked = (moduleBits[index]=='1'); return item; })
-            	    .ToList();
+                   .ToList();
 ```
 <!-- @TareqNewazShahriar -->
 
@@ -234,11 +234,11 @@ private StringBuilder ModuleCode(StringBuilder code, List<Module> modulelist, in
     {
         if (module.SeqNo == seq)
         {
-        	if (module.IsChecked)
-        	{
-            	code.Append("1");
-            	return code;
-        	}
+           if (module.IsChecked)
+           {
+               code.Append("1");
+               return code;
+           }
         }
     }
  
@@ -347,14 +347,14 @@ if (license.NoOfUser != null)
 {
     if (license.NoOfUser < 10)
     {
-        code.Append("0");	  // code -> stringBuilder
+        code.Append("0");     // code -> stringBuilder
         code.Append(license.NoOfUser);
     }
-	else
+   else
         code.Append(license.NoOfUser);
 }
 else
-	code.Append("00");
+   code.Append("00");
 ```
 
 **IMPROVE**
@@ -393,26 +393,26 @@ foreach (EnumCollection.ApplicationType applicationType in Enum.GetValues(typeof
             });
     }
     else
-	{
+   {
         applicationTypeList.Add(new SelectListItem
             {
                 Text = Enum.GetName(typeof(EnumCollection.ApplicationType), applicationType),
                 Value = applicationType.ToString()
             });
-	}
+   }
 }
 ```
 
 **IMPROVE**
 ```c#
 var applicationTypeList = Enum.GetValues(typeof(EnumCollection.ApplicationType))
-	.Cast<EnumCollection.ApplicationType>()
-	.Select(x => new SelectListItem() 
-	{ 
-		Text = x.ToString(),
-		Value = x.ToString(),
-		Selected = (license != null && license.ApplicationType == x)
-	}).ToList();
+   .Cast<EnumCollection.ApplicationType>()
+   .Select(x => new SelectListItem() 
+   { 
+      Text = x.ToString(),
+      Value = x.ToString(),
+      Selected = (license != null && license.ApplicationType == x)
+   }).ToList();
 ```
 <!-- @TareqNewazShahriar -->
 
@@ -464,7 +464,7 @@ else if (item != null && item.fullchecked == false)
 ```c#
 if (item != null)
 {
-    if (item.fullchecked)	// Not needed to check with “true” as “item.fullchecked” is itself a boolean
+    if (item.fullchecked)   // Not needed to check with “true” as “item.fullchecked” is itself a boolean
     {
     ...
     }
