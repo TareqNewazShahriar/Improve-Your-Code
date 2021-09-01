@@ -22,6 +22,35 @@ Finally... isn't it appealing to look back and see the memoriy of mistakes. So p
 <br/>
 
 
+## [17] Unnecessary lengthy code
+Labels: lenghty
+    
+What was mainly tried to do:
+- we have a currency-code (EUR/USD/...) in string; and a list of CultureInfo object.
+- we need the cultureInfo object which has that currency code.
+
+    
+**Original code (C#)**
+```c#
+var currencyCulture = CultureInfo.CurrentCulture;
+var cultures = localizationOptions.SupportedCultures.Select(x => x.Name).ToList();
+foreach (var culture in cultures)
+{
+	var ri = new RegionInfo(culture);
+	if (ri.ISOCurrencySymbol == currencyCode) // currencyCode is a string variable
+	{
+		currencyCulture = CultureInfo.CreateSpecificCulture(culture);
+		break;
+	}
+}
+```
+
+**IMPROVED**
+```c#
+var currrencyCulture = localizationOptions.SupportedCultures.SingleOrDefault(x => new RegionInfo(x.Name).ISOCurrencySymbol == currencyCode);
+```
+   
+    
 ## [16] Not leveraging parallel execution
 **Original code (C#)**
 ```c#
