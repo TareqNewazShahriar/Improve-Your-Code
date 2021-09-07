@@ -82,7 +82,9 @@ var categories = await getCategoriesTask;
 var boats = await getBoatsTask;
 ```
 
-## [15] Redundancy
+## [15] Duplication of code
+*Labels: duplication*
+	
 C# + HTML (cshtml) syntax:
 
 **Original code**
