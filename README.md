@@ -21,9 +21,22 @@ Finally... isn't it appealing to look back and see the memoriy of mistakes. So p
 <br/>
 <br/>
 
+## [18] Misuse of constant's flexibility
+*Labels: misuse*
 
+**Original code (C#)**
+```c#
+public string GetCurrency(string countryCode)
+{
+    return countryCode == "US" ? "USD" : AppConstants.DefaultCurrency; // DefaultCurrency = "EUR"
+}
+```
+
+**Warning**: Can you imagine what will happen if on a later point, DefaultCurrency is set to USD?!
+    
+    
 ## [17] Unnecessary lengthy code
-Labels: lenghty
+*Labels: lenghty*
     
 What was mainly tried to do:
 - we have a currency-code (EUR/USD/...) in string; and a list of CultureInfo object.
