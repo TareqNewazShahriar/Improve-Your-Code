@@ -20,6 +20,13 @@ Finally... isn't it appealing to look back and see the memoriy of mistakes. So p
 <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Here<a/>'s a quick Markdown guide, who needs it.
 <br/>
 <br/>
+	
+
+## [19] Manipulate Enum in wrong ways
+*Labels: misuse*
+
+
+	
 
 ## [18] Misuse of constant's flexibility
 *Labels: misuse*
@@ -118,6 +125,10 @@ Labels: #redundancy
 <!-- @TareqNewazShahriar -->
 
 ## [14]
+
+**What this code is trying to do**
+Returns first TeamId from a team list; if the list is empty add an item to the list and return the Id.
+
 **Original code**
 ```c#
 if (teamList != null)
@@ -139,8 +150,6 @@ teamList.Add(team);
 return team.TeamId;
 ```
 
-**What this code is trying to do**
-Returns first teamId from a team list; if the list is empty add an item to the list and return the Id.
 
 **IMPROVED** <br/>
 Removed redundant code.
@@ -503,7 +512,9 @@ else if (item != null && item.fullchecked == false)
 ```
 
 **IMPROVE**
-- Do not nest the same check `item != null`, put it as parent check.
+- Do not add the same check on every check of the ladder; put it as parent check, i.e. make nested checks. 
+* If the common check is needed to be changed, you have to keep all checks in mind (or you have to review every lines) then you will have to chnage every line.
+* Also, if you are typing those checks in the first place, you may do a typing mistake and you will lose some time to debug it.
 ```c#
 if (item != null)
 {
