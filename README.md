@@ -462,11 +462,8 @@ var applicationTypeList = Enum.GetValues(typeof(EnumCollection.ApplicationType))
 ```
 <!-- @TareqNewazShahriar -->
 
-## [4] Manipulate Enum in wrong ways
-*Labels: #misuse #enum*
+## [4] Enum
 	
-This issue is probably one of the most frequent mistakes done by all programmers from juniors to seniors. Here's some examples:
-
 **Original code**
 ```c#
 // The Enum
@@ -477,7 +474,7 @@ if (code.Substring(9, 1) == "0")
 else
     license.ApplicationType = ApplicationType.Education;
 ```
-	
+
 **IMPROVE**
 ```c#
 license.ApplicationType = (EnumCollection.ApplicationType)int.Parse(code.Substring(9, 1));
