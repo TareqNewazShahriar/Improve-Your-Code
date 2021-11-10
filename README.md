@@ -22,12 +22,6 @@ Finally... isn't it appealing to look back and see the memoriy of mistakes. So p
 <br/>
 	
 
-## [19] Manipulate Enum in wrong ways
-*Labels: misuse*
-
-
-	
-
 ## [18] Misuse of constant's flexibility
 *Labels: misuse*
 
@@ -468,20 +462,30 @@ var applicationTypeList = Enum.GetValues(typeof(EnumCollection.ApplicationType))
 ```
 <!-- @TareqNewazShahriar -->
 
-## [4]
+## [4] Manipulate Enum in wrong ways
+*Labels: #misuse #enum*
+	
+This issue is probably one of the most frequent mistakes done by all programmers from juniors to seniors. Here's some examples:
+
 **Original code**
 ```c#
-if (code.Substring(9, 1) == "0")
-    license.ApplicationType = EnumCollection.ApplicationType.Regular;
-else
-    license.ApplicationType = EnumCollection.ApplicationType.Education;
-```
+// The Enum
+// enum ApplicationType { Regular 0, ApplicationType.Education = 1 }
 
+if (code.Substring(9, 1) == "0")
+    license.ApplicationType = ApplicationType.Regular;
+else
+    license.ApplicationType = ApplicationType.Education;
+```
+	
 **IMPROVE**
 ```c#
 license.ApplicationType = (EnumCollection.ApplicationType)int.Parse(code.Substring(9, 1));
 ```
+	
 <!-- @TareqNewazShahriar -->
+	
+	
 
 ## [3]
 **Original code**
