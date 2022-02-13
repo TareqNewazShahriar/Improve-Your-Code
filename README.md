@@ -22,7 +22,7 @@ Finally... isn't it appealing to look back and see the memoriy of mistakes. So p
 <br/>
 	
 
-## [18] Misuse of constant's flexibility
+## [18] Wrong use of constant's flexibility
 *Labels: misuse*
 
 **Original code (C#)**
