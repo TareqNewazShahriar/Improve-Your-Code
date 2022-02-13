@@ -37,7 +37,7 @@ public string GetCurrency(string countryCode)
     
     
 ## [17] Unnecessary lengthy code (C# specific)
-*Labels: lenghty / c-sharp*
+*Labels: lenghty*
     
 What was mainly tried to do:
 - we have a currency-code (EUR/USD/...) in string; and a list of CultureInfo object.
