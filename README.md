@@ -36,8 +36,8 @@ public string GetCurrency(string countryCode)
 **Warning**: Can you imagine what will happen if on a later point, DefaultCurrency is set to USD?!
     
     
-## [17] Unnecessary lengthy code
-*Labels: lenghty*
+## [17] Unnecessary lengthy code (C# specific)
+*Labels: lenghty / c-sharp*
     
 What was mainly tried to do:
 - we have a currency-code (EUR/USD/...) in string; and a list of CultureInfo object.
@@ -50,12 +50,12 @@ var currencyCulture = CultureInfo.CurrentCulture;
 var cultures = localizationOptions.SupportedCultures.Select(x => x.Name).ToList();
 foreach (var culture in cultures)
 {
-	var ri = new RegionInfo(culture);
-	if (ri.ISOCurrencySymbol == currencyCode) // currencyCode is a string variable
-	{
-		currencyCulture = CultureInfo.CreateSpecificCulture(culture);
-		break;
-	}
+   var ri = new RegionInfo(culture);
+   if (ri.ISOCurrencySymbol == currencyCode) // currencyCode is a string variable
+   {
+      currencyCulture = CultureInfo.CreateSpecificCulture(culture);
+      break;
+   }
 }
 ```
 
