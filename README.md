@@ -17,11 +17,10 @@ Finally... isn't it appealing to look back and see the memoriy of mistakes. So p
 * If a new relevant point is needed to be added after or before another point which is at the middle, number it like ‘10.0’ (to add under 10) or ‘10.1’ (to add above 10). But do not change any existing number.
 * Only real-life mistakes will be added. For coding tips, tricks, optimization, contribute to that project https://github.com/TareqNewazShahriar/coding-tips-tricks-optimization.
 <br/>
+
 <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Here<a/>'s a quick Markdown guide, who needs it.
 <br/>
 <br/>
-	
-
 ## [18] Wrong use of constant's flexibility
 *Labels: misuse*
 
@@ -29,13 +28,14 @@ Finally... isn't it appealing to look back and see the memoriy of mistakes. So p
 ```c#
 public string GetCurrency(string countryCode)
 {
-    return countryCode == "US" ? "USD" : AppConstants.DefaultCurrency; // DefaultCurrency = "EUR"
+   return countryCode == "US" ? "USD" : AppConstants.DefaultCurrency; // DefaultCurrency = "EUR"
 }
 ```
 
+
 **Warning**: Can you imagine what will happen if on a later point, DefaultCurrency is set to USD?!
-    
-    
+
+
 ## [17] Unnecessary lengthy code (C# specific)
 *Labels: lenghty*
     
@@ -43,7 +43,7 @@ What was mainly tried to do:
 - we have a currency-code (EUR/USD/...) in string; and a list of CultureInfo object.
 - we need the cultureInfo object which has that currency code.
 
-    
+
 **Original code (C#)**
 ```c#
 var currencyCulture = CultureInfo.CurrentCulture;
@@ -63,8 +63,8 @@ foreach (var culture in cultures)
 ```c#
 var currrencyCulture = localizationOptions.SupportedCultures.SingleOrDefault(x => new RegionInfo(x.Name).ISOCurrencySymbol == currencyCode);
 ```
-   
-    
+
+
 ## [16] Not leveraging parallel execution
 **Original code (C#)**
 ```c#
@@ -85,7 +85,7 @@ var boats = await getBoatsTask;
 
 ## [15] Duplication of code
 *Labels: duplication*
-	
+    
 C# + HTML (cshtml) syntax:
 
 **Original code**
@@ -463,7 +463,7 @@ var applicationTypeList = Enum.GetValues(typeof(EnumCollection.ApplicationType))
 <!-- @TareqNewazShahriar -->
 
 ## [4] Enum
-	
+    
 **Original code**
 ```c#
 // The Enum
@@ -479,10 +479,10 @@ else
 ```c#
 license.ApplicationType = (EnumCollection.ApplicationType)int.Parse(code.Substring(9, 1));
 ```
-	
+    
 <!-- @TareqNewazShahriar -->
-	
-	
+    
+    
 
 ## [3]
 **Original code**
