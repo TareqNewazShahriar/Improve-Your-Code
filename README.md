@@ -4,9 +4,9 @@
 **Our learning from many years of mistakes, will be a short and sweet path for others.**  
 **Do not just fix or improve a code and forget; keep it, share it - for the next generation.**
 
-This is a end-less project to keep history of our or others coding mistakes that we've found in our real-life. Anyone can add code here; in fact everyone is highly encouraged to add real-life mistakes. This is really usefull for programmers of every stage.
+This is a end-less project to keep history of our and others coding mistakes that we've found in our real-life. Anyone can add code here. In fact everyone is highly encouraged to create pull requests to add real-life mistakes. This is really usefull for programmers of every stage.
 <br>
-Finally... isn't it appealing to look back and see the memoriy of mistakes. So please... go ahead and create a pull request.
+Finally... isn't it appealing to look back and see the memory of coding mistakes! So please... go ahead and create a pull request.
 
 <br>
 <br>
