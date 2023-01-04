@@ -36,7 +36,7 @@ public string GetCurrency(string countryCode)
 **Warning**: Can you imagine what will happen if on a later point, DefaultCurrency is set to USD?!
 
 
-## [17] Unnecessary lengthy code (C# specific)
+## [17] Unnecessarily lengthy code (C# specific)
 *Labels: lenghty*
     
 What was mainly tried to do:
