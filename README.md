@@ -178,7 +178,7 @@ var result = listX.Where(x => idList.Contains(x.Id)).ToList();
 
 ## [12]
 
-Linq ForEach method is there to modify some properties of a collection. No need to create another list by copying all the properties.
+Linq ForEach method can be used to modify some properties of a collection. No need to create and intermediate list.
 
 **Original code**
 ```c#
@@ -187,10 +187,10 @@ var list = new List<AModel>();
 
 foreach (var item in response.Result)
 {
-    list.Add(new AModel
-    {
-        ...
-    });
+   list.Add(new AModel
+   {
+      Count = item.Count + 1
+   });
 }
 ```
 
@@ -200,7 +200,7 @@ var response = await _service.GetAll();
 var list = response.Result as List<Model>;
 
 list.ForEach(x => {
-    ...
+   x.Count = x.Count + 1  // Or just x.Count++
 });
 ```
 <!-- @TareqNewazShahriar -->
