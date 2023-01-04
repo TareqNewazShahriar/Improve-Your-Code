@@ -189,16 +189,7 @@ foreach (var item in response.Result)
 {
     list.Add(new AModel
     {
-        Id = item.Id,
-        FromDate = DateTime.Parse(item.FromDate, new CultureInfo("en-US")).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture),
-        ToDate = DateTime.Parse(item.ToDate, new CultureInfo("en-US")).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture),
-        PolicyId = item.PolicyId,
-        Count = item.Count,
-        Message = item.Message,
-        RequestDate = DateTime.Parse(item.RequestDate, new CultureInfo("en-US")).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture),
-        Boat = item.Boat,
-        User = item.User,
-        Phone = item.Phone
+        ...
     });
 }
 ```
@@ -209,9 +200,7 @@ var response = await _service.GetAll();
 var list = response.Result as List<Model>;
 
 list.ForEach(x => {
-    x.FromDate = DateTime.Parse(x.FromDate, new CultureInfo("en-US")).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-    x.ToDate = DateTime.Parse(x.ToDate, new CultureInfo("en-US")).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-    x.RequestDate = DateTime.Parse(x.RequestDate, new CultureInfo("en-US")).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+    ...
 });
 ```
 <!-- @TareqNewazShahriar -->
