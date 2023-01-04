@@ -76,8 +76,7 @@ var boats = await _api.getBoats();
 ```c#
 var getCategoriesTask = _api.getCategories();
 var getBoatsTask = _api.getBoats();
-
-// So both methods started
+// So both methods/http-requests will be executed simultaneously (depends on machine cores)
 
 var categories = await getCategoriesTask;
 var boats = await getBoatsTask;
