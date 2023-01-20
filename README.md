@@ -21,6 +21,32 @@ Finally... isn't it appealing to look back and see the memory of coding mistakes
 <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Here<a/>'s a quick Markdown guide, who needs it.
 <br/>
 <br/>
+
+
+
+
+## [19] Writing verbose/lengthy code without using null-conditional (C# 6.0, 2015) and null-coalcasing operators (C# 8, 2019):
+
+**Original code (C#)**
+```c#
+if(obj.Name != null)
+   obj.OtherName = obj.Name.ToUpper();
+else
+   obj.OtherName = null;
+ ```
+
+**IMPROVED**
+```c#
+obj.OtherName = obj.Name?.ToUpper();
+```
+
+If we need to assign some values when null, then:
+```c#
+obj.OtherName = obj.Name?.ToUpper() ?? "wow";
+```
+
+
+
 ## [18] Wrong use of constant's flexibility
 *Labels: misuse*
 
