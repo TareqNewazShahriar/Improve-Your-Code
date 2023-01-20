@@ -25,7 +25,7 @@ Finally... isn't it appealing to look back and see the memory of coding mistakes
 
 
 
-## [19] Writing verbose/lengthy code without using null-conditional (?./?[]) and null-coalcasing operators (??/??=):
+## [19] Writing verbose or lengthy code without using null-conditional (?./?[]) and null-coalcasing operators (??/??=):
 
 Null-conditional operator introduced in C# 6.0 on 2015 and null-coalcasing operators introduced in C# 8, 2019.
    
