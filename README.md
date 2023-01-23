@@ -26,8 +26,6 @@ Finally... isn't it appealing to look back and see the memory of coding mistakes
 
 
 ## [19] Writing verbose or lengthy code without using null-conditional (?./?[]) and null-coalcasing operators (??/??=):
-
-Null-conditional operator introduced in C# 6.0 on 2015 and null-coalcasing operators introduced in C# 8, 2019.
    
 **Original code (C#)**
 ```c#
@@ -35,7 +33,7 @@ if(obj.Name != null)
    obj.OtherName = obj.Name.ToUpper();
 else
    obj.OtherName = null;
- ```
+```
 
 **IMPROVED**
 ```c#
@@ -47,6 +45,7 @@ If we need to assign some values when null, then:
 obj.OtherName = obj.Name?.ToUpper() ?? "wow";
 ```
 
+Note: Null-conditional operator introduced in C# 6.0 on 2015 and null-coalcasing operators introduced in C# 8 on 2019.
 
 
 ## [18] Wrong use of constant's flexibility
