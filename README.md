@@ -48,19 +48,19 @@ obj.OtherName = obj.Name?.ToUpper() ?? "wow";
 Note: Null-conditional operator introduced in C# 6.0 on 2015 and null-coalcasing operators introduced in C# 8 on 2019.
 
 
-## [18] Wrong use of constant's flexibility
-*Labels: misuse*
+## [18] It's just wrong
+*Labels: mistake*
 
 **Original code (C#)**
 ```c#
 public string GetCurrency(string countryCode)
 {
-   return countryCode == "US" ? "USD" : AppConstants.DefaultCurrency; // DefaultCurrency = "EUR"
+   return countryCode == "US" ? "USD" : AppConstants.DefaultCurrency; // currently, AppConstants.DefaultCurrency = "EUR"
 }
 ```
 
 
-**Warning**: Can you imagine what will happen if on a later point, DefaultCurrency is set to USD?!
+**Warning**: Can you imagine what will happen on a later point, if default currency decided to be USD!
 
 
 ## [17] Unnecessarily lengthy code (C# specific)
