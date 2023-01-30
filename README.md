@@ -27,7 +27,7 @@ Finally... isn't it appealing to look back and see the memory of coding mistakes
 
 ## [19] Writing verbose or lengthy code without using null-conditional (?./?[]) and null-coalcasing operators (??/??=):
    
-**Original code (C#)**
+**Code found in real project** (C#)
 ```c#
 if(obj.Name != null)
    obj.OtherName = obj.Name.ToUpper();
@@ -51,7 +51,7 @@ Note: Null-conditional operator introduced in C# 6.0 on 2015 and null-coalcasing
 ## [18] It's just wrong
 *Labels: mistake*
 
-**Original code (C#)**
+**Code found in real project** (C#)
 ```c#
 public string GetCurrency(string countryCode)
 {
@@ -71,7 +71,7 @@ What was mainly tried to do:
 - we need the cultureInfo object which has that currency code.
 
 
-**Original code (C#)**
+**Code found in real project** (C#)
 ```c#
 var currencyCulture = CultureInfo.CurrentCulture;
 var cultures = localizationOptions.SupportedCultures.Select(x => x.Name).ToList();
@@ -93,7 +93,7 @@ var currrencyCulture = localizationOptions.SupportedCultures.SingleOrDefault(x =
 
 
 ## [16] Not leveraging parallel execution
-**Original code (C#)**
+**Code found in real project** (C#)
 ```c#
 var categories = await _api.getCategories();
 var boats = await _api.getBoats();
@@ -114,7 +114,7 @@ var boats = await getBoatsTask;
     
 C# + HTML (cshtml) syntax:
 
-**Original code**
+**Code found in real project**
 ```html
 if (ModelList == null)
 {
@@ -149,7 +149,7 @@ Labels: #redundancy
 **What this code is trying to do**
 Returns first TeamId from a team list; if the list is empty add an item to the list and return the Id.
 
-**Original code**
+**Code found in real project**
 ```c#
 if (teamList != null)
 {
@@ -190,12 +190,12 @@ return team.TeamId;
 
 List evaluation inside loop will evaluate it every time. Is it desired! Know before doing.
 
-**Original code**
+**Code found in real project**
 ```c#
 var result = listX.Where(x => ((listY.Select(y => y.Id).ToList()).Contains(x.Id))).ToList();
 ```
 
-**IMPROVE** <br/>
+**IMPROVED** <br/>
 Evaluate the intermediate list before entering into the loop, then reuse it.
 ```c#
 var idList = listY.Select(y => y.Id);
@@ -205,9 +205,9 @@ var result = listX.Where(x => idList.Contains(x.Id)).ToList();
 
 ## [12]
 
-Linq ForEach method can be used to modify some properties of a collection. No need to create and intermediate list.
+Linq ForEach method can be used to modify some properties of a collection. No need to create an intermediate list.
 
-**Original code**
+**Code found in real project**
 ```c#
 var response = await _service.GetAll();
 var list = new List<AModel>();
@@ -221,7 +221,7 @@ foreach (var item in response.Result)
 }
 ```
 
-**IMPROVE**
+**IMPROVED**
 ```C#
 var response = await _service.GetAll();
 var list = response.Result as List<Model>;
@@ -235,7 +235,7 @@ list.ForEach(x => {
 ## [11.1]
 Now the reverse of below, - read a string and assign true/false in items of a list:
 
-**Original code**
+**Code found in real project**
 ```c#
 string module = code.Substring(13, moduleList.Count);
 string[] moduleArr = module.ToCharArray().Select(c => c.ToString()).ToArray();
@@ -260,7 +260,7 @@ for (int i = 0; i < moduleArr.Length; i++)
 }
 ```
 
-**IMPROVE**
+**IMPROVED**
 ```c#
 license.Module = moduleList
                      .OrderBy(x => x.SeqNo)
@@ -280,7 +280,7 @@ class Module
 }
 ```
 
-**Original code**
+**Code found in real project**
 ```c#
 int count = 0;
 foreach (var module in license.Modules)
@@ -307,7 +307,7 @@ private StringBuilder ModuleCode(StringBuilder code, List<Module> modulelist, in
 }
 ```
 
-**IMPROVE**
+**IMPROVED**
 ```c#
 string bits = string.Join("", license.Module.OrderBy(x => x.SeqNo).Select(x => x.IsChecked ? "1" : "0")));
 ```
@@ -331,7 +331,7 @@ public class License
 }
 ```
 
-**Original code**
+**Code found in real project**
 ```c#
 if (license.LicenseType.ToString() == "Demo")
    code.Append("0");   // code is stringBuilder
@@ -339,19 +339,19 @@ else
    code.Append("1");
 ```
 
-**IMPROVE**
+**IMPROVED**
 ```c#
 code.Append((int)license.LicenseType);
 ```
 <!-- @TareqNewazShahriar -->
 
 ## [9]
-**Original code**
+**Code found in real project**
 ```c#
 (drugclass == "C3" || drugclass == "C4" || drugclass == "C5")
 ```
 
-**IMPROVE**
+**IMPROVED**
 ```c#
 new string[] { "C3", "C4", "C5" }.Contains(drugclass)
 ```
@@ -362,7 +362,7 @@ new string[] { "C3", "C4", "C5" }.Contains(drugclass)
 <!-- @TareqNewazShahriar -->
 
 ## [8]
-**Original code**
+**Code found in real project**
 ```c#
 // code -- stringBuilder
 if (license.ExpiryDate != null)
@@ -395,14 +395,14 @@ Just found another similar line of code:
 var newCodeDate = $"{DateTime.Today.Year}{DateTime.Today.Month.ToString().PadLeft(2, '0')}{DateTime.Today.Day.ToString().PadLeft(2, '0')}";
 ```
 
-**IMPROVE**
+**IMPROVED**
 ```c#
 code.Append(license.ExpiryDate.Value.ToString("yyyyMMdd"));
 ```
 <!-- @TareqNewazShahriar -->
 
 ## [7]
-**Original code**
+**Code found in real project**
 ```c#
 if (license.NoOfUser != null)
 {
@@ -418,14 +418,14 @@ else
    code.Append("00");
 ```
 
-**IMPROVE**
+**IMPROVED**
 ```c#
 code.Append((license.NoOfUser ?? default(int)).ToString().PadLeft(2, '0'));
 ```
 <!-- @TareqNewazShahriar -->
 
 ## [6]
-**Original code**
+**Code found in real project**
 ```c#
 string code = string.Empty;
 code += license.Falg1 ? "0" : "1";
@@ -439,7 +439,7 @@ code += license.Falg4 ? "0" : "1";
 **More improvement:** Should be used self-explanatory names which reveal it’s intent instead of Falgs and also remove Magic numbers. <!-- @mfhs -->
 
 ## [5]
-**Original code**
+**Code found in real project**
 ```c#
 var applicationTypeList = new List<SelectListItem>();
 foreach (EnumCollection.ApplicationType applicationType in Enum.GetValues(typeof(EnumCollection.ApplicationType)))
@@ -464,7 +464,7 @@ foreach (EnumCollection.ApplicationType applicationType in Enum.GetValues(typeof
 }
 ```
 
-**IMPROVE**
+**IMPROVED**
 ```c#
 var applicationTypeList = Enum.GetValues(typeof(EnumCollection.ApplicationType))
    .Cast<EnumCollection.ApplicationType>()
@@ -479,7 +479,7 @@ var applicationTypeList = Enum.GetValues(typeof(EnumCollection.ApplicationType))
 
 ## [4] Enum
     
-**Original code**
+**Code found in real project**
 ```c#
 // The Enum
 // enum ApplicationType { Regular 0, ApplicationType.Education = 1 }
@@ -490,7 +490,7 @@ else
     license.ApplicationType = ApplicationType.Education;
 ```
 
-**IMPROVE**
+**IMPROVED**
 ```c#
 license.ApplicationType = (EnumCollection.ApplicationType)int.Parse(code.Substring(9, 1));
 ```
@@ -500,7 +500,7 @@ license.ApplicationType = (EnumCollection.ApplicationType)int.Parse(code.Substri
     
 
 ## [3]
-**Original code**
+**Code found in real project**
 ```c#
 string year = code.Substring(1, 4);
 string month = code.Substring(5, 2);
@@ -508,14 +508,14 @@ string day = code.Substring(7, 2);
 license.ExpiryDate = Convert.ToDateTime(year + "-" + month + "-" + day);
 ```
 
-**IMPROVE**
+**IMPROVED**
 ```c#
 license.ExpiryDate = DateTime.ParseExact(code.Substring(1, 8), "yyyyMMdd", null);
 ```
 <!-- @TareqNewazShahriar -->
 
 ## [2]
-**Original code**
+**Code found in real project**
 ```c#
 if (item != null && item.fullchecked == true)
 {
@@ -527,7 +527,7 @@ else if (item != null && item.fullchecked == false)
 }
 ```
 
-**IMPROVE**
+**IMPROVED**
 - Do not add the same check on every check of the ladder; put it as parent check, i.e. make nested checks. 
 * If the common check is needed to be changed, you have to keep all checks in mind (or you have to review every lines) then you will have to chnage every line.
 * Also, if you are typing those checks in the first place, you may do a typing mistake and you will lose some time to debug it.
@@ -547,7 +547,7 @@ if (item != null)
 <!-- @TareqNewazShahriar -->
 
 ## [1]
-**Original code**
+**Code found in real project**
 ```c#
 if (CustomerSelect == 0)
 {
@@ -559,7 +559,7 @@ else
 }
 ```
 
-**IMPROVE**
+**IMPROVED**
 ```c#
 IsIndividualCustomer = CustomerSelect != 0;
 ```
