@@ -23,8 +23,40 @@ Finally... isn't it appealing to look back and see the memory of coding mistakes
 <br/>
 
 
+## [22] Unnecessary operation just because to the code in one line instead of two:
+   
+   **Code found in real project** (JS)
+   ```js
+   price = price ? price : 0;
+   ```
+   
+   **IMPROVED**
+   We don't need to do `price = price` when `price` has value. So do what is only need to do; even it needs two lines.
+   ```js
+   if(!price)
+      price = 0;
+   ```
+   
+   
+## [21] Lengthy:
+   
+   
+   **Code found in real project** (JS)
+   ```js
+   let price = document.querySelector('.price').value;
+   price = price ? price : 0;
+   let result = price * 10;
+   ```
+   
+   **IMPROVED**
+   ```js
+   let price = document.querySelector('.price').value;
+   let result = (price || 0) * 10;
+   ```
+   
    
 ## [20] Confusing and probably a mistake
+   
    **Code found in real project** (C# & LINQ)
    ```c#
    if (products.Any())
