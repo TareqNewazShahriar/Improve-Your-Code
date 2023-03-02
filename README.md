@@ -23,7 +23,7 @@ Finally... isn't it appealing to look back and see the memory of coding mistakes
 <br/>
 
 
-## [22] Unnecessary operation just because to the code in one line instead of two:
+## [22] Doing unnecessary operation just to keep the code in one line:
    
    **Code found in real project** (JS)
    ```js
