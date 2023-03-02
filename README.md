@@ -23,7 +23,40 @@ Finally... isn't it appealing to look back and see the memory of coding mistakes
 <br/>
 
 
-
+   
+## [20] Confusing and probably a mistake
+   **Code found in real project** (C# & LINQ)
+   ```c#
+   if (products.Any())
+      return products;
+   return null;
+   ```
+   
+   **IMPROVED**
+   
+   What is intended here?  
+   
+   * If inteded code is - if product empty (this check implies that `products` will never be null, since there's no null check) then return null, otherwise return the products -- then this code is fine.
+   
+   * If the `products` is null return null otherwise return the list? Then this check is meaningless. Simply write:
+   ```diff
+-   if (products.Any())
+-      return products;
+-   return null;
++   return products;
+   ```
+   
+   * If desired code is - if the `products` is null or empty then return null, otherwise return the list, then the code can be:
+   ```c#
+   if (products is object && products.Any())
+      return products;
+   return null;
+   
+   // OR
+   
+   return products?.Any() == true ? products : null;
+   ```
+   
 
 ## [19] Writing verbose or lengthy code without using null-conditional (?./?[]) and null-coalcasing operators (??/??=):
    
