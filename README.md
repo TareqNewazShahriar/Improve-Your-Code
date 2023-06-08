@@ -23,10 +23,13 @@ Finally... isn't it appealing to look back and see the memory of coding mistakes
 <br/>
 
 
-## [23] Watch out what you are doing inside loop / doing repeatitive operations inside loop.
+## [23] Doing operations inside loop which is not related to loop moreover costly (watch out what you are doing inside loop):
+  
+  Here redundant database calls are making inside loop over and over.  
+  
    **Code found in real project** (C# & LINQ)
   ```c#
-   foreach (var newFund in newFunds)
+   foreach (var newFund in newFunds) // New funds gathered from an excel file
    {
       var existingRecord = _accountRepository.GetExistingFundsByAccountId(accountId)).Where(x => x.UniqueCode == newFund.UniqueCode); // Where() returns a collection
       if (existingRecord == null || existingRecord.Count() == 0)
@@ -42,7 +45,11 @@ Finally... isn't it appealing to look back and see the memory of coding mistakes
       }
    }
    ```
-   **IMPROVED**
+  
+   **IMPROVED**  
+  
+   * Prepare your stuffs before entering into the loop.
+  
    ```c#
    // Get the existing funds before entering into the loop:
    var existingFundsInAccount = _accountRepository.GetExistingFundsByAccountId(accountId);
@@ -63,7 +70,50 @@ Finally... isn't it appealing to look back and see the memory of coding mistakes
       }
    }
    ```
-   
+  
+ ### Here's another one of it (code unrelated with loop):
+  
+  Everytime it finds a file, it is creating and opening a new FTP session.
+  
+  **Code found in real project** (C#)
+  ```c#
+  string folderPath = "<local folder path>";
+  string destinationFtpUrl = "<ftp url>";
+
+  foreach (string filePath in Directory.EnumerateFiles(folderPath, "*.xlsx"))
+  {
+      using (FileStream fs = File.OpenRead(filePath))
+      {
+          Session session = new Session();  // WinSCP session
+          session.Open(sessionOptionsObj);
+
+          // Uploading file on SFTP  
+          session.PutFile(fs, destinationFtpUrl, new TransferOptions { TransferMode = TransferMode.Binary });
+      }
+  }
+  ```
+  
+  **IMPROVED**
+  
+  - Create and open a single FTP session before entering into the loop then transfer all the files with that session.
+  
+  ```c#
+  string folderPath = "<local folder path>";
+  string destinationFtpUrl = "<ftp url>";
+
+  Session session = new Session();  // WinSCP session
+  session.Open(sessionOptionsObj);
+
+  foreach (string filePath in Directory.EnumerateFiles(folderPath, "*.xlsx"))
+  {
+      using (FileStream fs = File.OpenRead(filePath))
+      {
+          // Uploading file on SFTP  
+          session.PutFile(fs, destinationFtpUrl, new TransferOptions { TransferMode = TransferMode.Binary });
+      }
+  }
+  ```
+  
    
 ## [22] Doing unnecessary operation just to keep the code in one line:
    
