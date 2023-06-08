@@ -23,6 +23,48 @@ Finally... isn't it appealing to look back and see the memory of coding mistakes
 <br/>
 
 
+## [23] Watch out what you are doing inside loop / doing repeatitive operations inside loop.
+   **Code found in real project** (C# & LINQ)
+  ```c#
+   foreach (var newFund in newFunds)
+   {
+      var existingRecord = _accountRepository.GetExistingFundsByAccountId(accountId)).Where(x => x.UniqueCode == newFund.UniqueCode); // Where() returns a collection
+      if (existingRecord == null || existingRecord.Count() == 0)
+      {
+         // Add new record
+         await _accountRepository.AddAccountFund(newFund);
+      }
+      else
+      {
+         // Update existing record based on UniqueCode
+         newFund.Id = existingRecord.First().Id;
+         await _accountRepository.UpdateAccountFund(newFund);
+      }
+   }
+   ```
+   **IMPROVED**
+   ```c#
+   // Get the existing funds before entering into the loop:
+   var existingFundsInAccount = _accountRepository.GetExistingFundsByAccountId(accountId);
+   
+   foreach (var newFund in newFunds)
+   {
+      var existingFund = existingFundsInAccount.SingleOrDefault(x => x.UniqueCode == newFund.UniqueCode);
+      if ()
+      {
+         // Update existing record based on UniqueCode
+         newFund.Id = existingFund.Id;
+         await _accountRepository.UpdateAccountFund(newFund);
+      }
+      else
+      {
+         // Add new record
+         await _accountRepository.AddAccountFund(newFund);
+      }
+   }
+   ```
+   
+   
 ## [22] Doing unnecessary operation just to keep the code in one line:
    
    **Code found in real project** (JS)
