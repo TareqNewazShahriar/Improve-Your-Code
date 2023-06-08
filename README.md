@@ -80,12 +80,8 @@ Finally... isn't it appealing to look back and see the memory of coding mistakes
    
    * If desired code is - if the `products` is null or empty then return null, otherwise return the list, then the code can be:
    ```c#
-   if (products is object && products.Any())
-      return products;
-   return null;
-   
+   return products is object && products.Any() ? products : null;
    // OR
-   
    return products?.Any() == true ? products : null;
    ```
    
