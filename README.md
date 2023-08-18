@@ -23,6 +23,26 @@ Finally... isn't it appealing to look back and see the memory of coding mistakes
 <br/>
 
 
+## [24] Unnecessarily complicated SQL and wrong use of CASE
+tags: complicated
+
+**Code found in real project** (SQL) 
+```sql
+SELECT *
+FROM Funds
+WHERE ModelAllocationId = CASE
+                              WHEN @AllocationId IS NULL THEN ModelAllocationId
+                              ELSE @AllocationId
+                          END
+```
+
+**IMPROVED**  
+```sql
+SELECT *
+FROM Funds
+WHERE @AllocationId IS NULL OR ModelAllocationId = @AllocationId
+```
+
 ## [23] Doing operations inside loop which is not related to loop moreover costly (watch out what you are doing inside loop):
   
   Here redundant database calls are making inside loop over and over.  
