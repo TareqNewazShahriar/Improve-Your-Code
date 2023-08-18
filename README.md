@@ -30,17 +30,17 @@ tags: complicated
 ```sql
 SELECT *
 FROM Funds
-WHERE ModelAllocationId = CASE
-                              WHEN @AllocationId IS NULL THEN ModelAllocationId
-                              ELSE @AllocationId
-                          END
+WHERE AllocationId = CASE
+                        WHEN @AllocationId IS NULL THEN AllocationId
+                        ELSE @AllocationId
+                     END
 ```
 
 **IMPROVED**  
 ```sql
 SELECT *
 FROM Funds
-WHERE @AllocationId IS NULL OR ModelAllocationId = @AllocationId
+WHERE @AllocationId IS NULL OR AllocationId = @AllocationId
 ```
 
 ## [23] Doing operations inside loop which is not related to loop moreover costly (watch out what you are doing inside loop):
