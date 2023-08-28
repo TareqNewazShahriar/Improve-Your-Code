@@ -47,11 +47,14 @@ WHERE @AllocationId IS NULL OR AllocationId = @AllocationId
 ### Another one (how on earth framing of filter logic can be that baaad!)
 
 **Code found in real project** (SQL) 
-WHERE	IC.Active = 1
-			AND IC.invcatID = CASE WHEN @invCatId IS NULL THEN IC.invcatID ELSE @invCatId END
-			AND IC.Morningstar_Name = CASE WHEN ISNULL(@CategoryName,'') = '' THEN IC.Morningstar_Name ELSE @CategoryName END
+```sql
+WHERE CategoryName = CASE
+						WHEN ISNULL(@category_name, '') = '' THEN CategoryName
+						ELSE @category_name
+					END
 ```
 
+**IMPROVED**  
 
 
 ## [23] Doing operations inside loop which is not related to loop moreover costly (watch out what you are doing inside loop):
