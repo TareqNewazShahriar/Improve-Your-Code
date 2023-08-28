@@ -49,9 +49,9 @@ WHERE @AllocationId IS NULL OR AllocationId = @AllocationId
 **Code found in real project** (SQL) 
 ```sql
 WHERE CategoryName = CASE
-						WHEN ISNULL(@category_name, '') = '' THEN CategoryName
-						ELSE @category_name
-					END
+                        WHEN ISNULL(@category_name, '') = '' THEN CategoryName
+                        ELSE @category_name
+                     END
 ```
 
 **IMPROVED**  
