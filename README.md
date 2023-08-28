@@ -23,7 +23,7 @@ Finally... isn't it appealing to look back and see the memory of coding mistakes
 <br/>
 
 
-## [24] Unnecessarily complicated SQL and wrong use of CASE
+## [24] Unnecessarily complicated WHERE clause and wrong use of CASE - SQL
 tags: complicated
 
 **Code found in real project** (SQL) 
@@ -42,6 +42,17 @@ SELECT *
 FROM Funds
 WHERE @AllocationId IS NULL OR AllocationId = @AllocationId
 ```
+
+
+### Another one (how on earth framing of filter logic can be that baaad!)
+
+**Code found in real project** (SQL) 
+WHERE	IC.Active = 1
+			AND IC.invcatID = CASE WHEN @invCatId IS NULL THEN IC.invcatID ELSE @invCatId END
+			AND IC.Morningstar_Name = CASE WHEN ISNULL(@CategoryName,'') = '' THEN IC.Morningstar_Name ELSE @CategoryName END
+```
+
+
 
 ## [23] Doing operations inside loop which is not related to loop moreover costly (watch out what you are doing inside loop):
   
