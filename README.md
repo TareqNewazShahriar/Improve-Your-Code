@@ -34,12 +34,13 @@ WHERE CategoryName = CASE
 ```
 
 **IMPROVED**  
- Use of function with an argument in Where clause make the query non-optimizable by the engine.  
- Also the query is less readable.
-
 ```sql
 WHERE @category_name is null OR @category_name = '' OR CategoryName = @category_name
 ```
+
+- Use of function having an argument in `where` clause make the query non-optimizable by the engine. Not sure about this case though, since here the argument value is fixed for all the queries.  
+- Also the query is less readable.  
+
 How to frame queries so that Query Engine can optimize (sargable (Search ARGument ABLE)) it:
 https://stackoverflow.com/questions/799584/what-makes-a-sql-statement-sargable
 
