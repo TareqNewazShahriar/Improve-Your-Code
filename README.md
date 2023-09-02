@@ -12,9 +12,9 @@ Finally... isn't it appealing to look back and see the memory of coding mistakes
 <br>
 
 ## Important NOTE
-* Replace or remove sensitive/irrelevant code parts.
+* Replace or remove irrelevant and sensitive code parts.
 * New point will be added at the top with descend numbering.
-* If a new relevant point is needed to be added after or before another point which is at the middle, number it like ‘10.0’ (to add under 10) or ‘10.1’ (to add above 10). But do not change any existing number.
+* If a new point is needed to be added before or after another point which is at the middle, number it like ‘10.0’ (to add under 10) or ‘10.2’ (to add above 10). But don't change any existing number.
 * Only real-life mistakes will be added. For coding tips, tricks, optimization, contribute to that project https://github.com/TareqNewazShahriar/coding-tips-tricks-optimization.
 <br/>
 
