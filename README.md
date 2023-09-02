@@ -11,7 +11,7 @@ Finally... isn't it appealing to look back and see the memory of coding mistakes
 <br>
 <br>
 
-## Important NOTE
+**Important NOTE**  
 * Replace or remove irrelevant and sensitive code parts.
 * New point will be added at the top with descend numbering.
 * If a new point is needed to be added before or after another point which is at the middle, number it like ‘10.0’ (to add under 10) or ‘10.2’ (to add above 10). But don't change any existing number.
