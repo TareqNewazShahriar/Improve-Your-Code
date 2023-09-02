@@ -4,14 +4,14 @@
 **Our learning from many years of mistakes, will be a short and sweet path for others.**  
 **Do not just fix or improve a code and forget; keep it, share it - for the next generation.**
 
-This is a end-less project to keep history of our and others coding mistakes that we've found in our real-life. Anyone can add code here. In fact everyone is highly encouraged to create pull requests to add real-life mistakes. This is really usefull for programmers of every stage.
+This is a end-less project to keep history of coding mistakes that are found in real-life projects. Anyone can add code here. In fact everyone is highly encouraged to create pull requests to add found mistakes. This is really usefull for programmers of every stage.
 <br>
 Finally... isn't it appealing to look back and see the memory of coding mistakes! So please... go ahead and create a pull request.
 
 <br>
 <br>
 
-**NOTE**
+## Important NOTE
 * Replace or remove sensitive/irrelevant code parts.
 * New point will be added at the top with descend numbering.
 * If a new relevant point is needed to be added after or before another point which is at the middle, number it like ‘10.0’ (to add under 10) or ‘10.1’ (to add above 10). But do not change any existing number.
@@ -21,6 +21,28 @@ Finally... isn't it appealing to look back and see the memory of coding mistakes
 <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Here<a/>'s a quick Markdown guide, who needs it.
 <br/>
 <br/>
+
+
+## [25] Framing a filter logic in a way so that it becomes least readable and non-optimizable by the Query Engine:
+
+**Code found in real project** (SQL) 
+```sql
+WHERE CategoryName = CASE
+                       WHEN ISNULL(@category_name, '') = '' THEN CategoryName
+                       ELSE @category_name
+                     END
+```
+
+**IMPROVED**  
+ Use of function with an argument in Where clause make the query non-optimizable by the engine.  
+ Also the query is less readable.
+
+```sql
+WHERE @category_name is null OR @category_name = '' OR CategoryName = @category_name
+```
+How to frame queries so that Query Engine can optimize (sargable (Search ARGument ABLE)) it:
+https://stackoverflow.com/questions/799584/what-makes-a-sql-statement-sargable
+
 
 
 ## [24] Unnecessarily complicated WHERE clause and wrong use of CASE - SQL
@@ -42,20 +64,7 @@ SELECT *
 FROM Funds
 WHERE @AllocationId IS NULL OR AllocationId = @AllocationId
 ```
-
-
-### Another one (how on earth framing of filter logic can be that baaad!)
-
-**Code found in real project** (SQL) 
-```sql
-WHERE CategoryName = CASE
-                      WHEN ISNULL(@category_name, '') = '' THEN CategoryName
-                      ELSE @category_name
-                     END
-```
-
-**IMPROVED**  
-
+  
 
 ## [23] Doing operations inside loop which is not related to loop moreover costly (watch out what you are doing inside loop):
   
