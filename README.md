@@ -66,7 +66,7 @@ WHERE @AllocationId IS NULL OR AllocationId = @AllocationId
 ```
   
 
-## [23] Doing operations inside loop which is not related to loop moreover costly (watch out what you are doing inside loop):
+## [23] Doing operations inside loop, which can be performed before the loop, make the loop operation costly (watch out what you are doing inside loop):
   
   Here redundant database calls are making inside loop over and over.  
   
