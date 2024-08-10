@@ -1,36 +1,25 @@
 # Real-life Coding Mistakes
-<!-- <a style="display:none" href="https://tareqnewazshahriar.github.io/real-life-coding-mistakes/">View as website</a> -->
+<a style="display:none" href="https://tareqnewazshahriar.github.io/real-life-coding-mistakes/">View as website</a>
 
-**Our learning from many years of mistakes, will be a short and sweet path for others.**  
-**Do not just fix or improve a code and forget; keep it, share it - for the next generation.**
+**Our learning from many years of mistakes, will be a short and sweet path for others. Do not just fix or improve a code and forget it. Keep it, share it - for learning.**
 
-This is a end-less project to keep history of coding mistakes that are found in real-life projects. Anyone can add code here. In fact everyone is highly encouraged to create pull requests to add found mistakes. This is really usefull for programmers of every stage.
-<br>
-Finally... isn't it appealing to look back and see the memory of coding mistakes! So please... go ahead and create a pull request.
-
-<br>
-<br>
-
-**Important NOTE**  
-* Remove irrelevant code parts and replace/remove sensitive portions.
-* New point will be added at the top with descend numbering.
-* If a new point is needed to be added before or after another point which is at the middle, number it like ‘10.0’ (to add under 10) or ‘10.2’ (to add above 10). But don't change any existing number.
-* Only real-life mistakes will be added. For coding tips, tricks, optimization, contribute to that project https://github.com/TareqNewazShahriar/coding-tips-tricks-optimization.
-<br/>
-
-<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Here<a/>'s a quick Markdown guide, who needs it.
+Note:
+1. Irrelevant or sensitive code parts removed/replaced.
+1. New point will be added at the top, i.e. beginning.
+1. Only real-life mistakes will be added. For coding tips, tricks, optimization, this project will be used: https://github.com/TareqNewazShahriar/coding-tips-tricks-optimization.
+1. Main repo: https://github.com/TareqNewazShahriar/real-life-coding-mistakes
+    
 <br/>
 <br/>
-
 
 ## [25] Framing a filter logic in a way so that it becomes least readable and non-optimizable by the Query Engine:
 
 **Code found in real project** (SQL) 
 ```sql
 WHERE CategoryName = CASE
-                       WHEN ISNULL(@category_name, '') = '' THEN CategoryName
-                       ELSE @category_name
-                     END
+   WHEN ISNULL(@category_name, '') = '' THEN CategoryName
+   ELSE @category_name
+END
 ```
 
 **IMPROVED**  
@@ -43,7 +32,6 @@ WHERE @category_name is null OR @category_name = '' OR CategoryName = @category_
 
 How to frame queries so that Query Engine can optimize (sargable (Search ARGument ABLE)) it:
 https://stackoverflow.com/questions/799584/what-makes-a-sql-statement-sargable
-
 
 
 ## [24] Unnecessarily complicated WHERE clause and wrong use of CASE - SQL
